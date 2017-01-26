@@ -1,0 +1,28 @@
+.row
+  .small-6.small-centered.column
+    %h2= t('mailer.feedback_created_system.header')
+.row
+  .small-6.small-centered.columns
+    %p
+      %b= t(:author)
+      = @feedback.author
+    %p
+      %b= t(:city)
+      = @feedback.city
+    %p
+      %b= t(:email)
+      = @feedback.email
+    %p
+      %b= t(:occupation)
+      = @feedback.occupation
+    %p
+      %b= t(:feedback)
+      = @feedback.body
+    %p
+      %b= t(:estate)
+      = link_to @estate.title, estate_url(@estate, locale: locale), target: '_blank'
+    %p
+      %b= t(:status)
+      = @feedback.approved_to_s?
+
+    = link_to t(:approve), edit_admin_feedback_url(@feedback, locale: locale), target: '_blank', class: 'button'

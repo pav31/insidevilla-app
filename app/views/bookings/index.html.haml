@@ -1,0 +1,44 @@
+.row
+  .small-centered.columns
+    %h1.text-center= t(:bookings)
+.row
+  .small-centered.columns.text-center
+    = link_to t(:new_booking), new_estate_booking_path(@estate), class: 'button success'
+    = link_to t(:back_to_estate), estate_path(@estate), class: 'button'
+.row
+  .small-centered.columns
+    %table
+      %thead
+        %tr
+          %th.text-center= t(:move_in_at)
+          %th.text-center= t(:move_out_at)
+          %th.text-center= t(:name)
+          %th.text-center= t(:email)
+          %th.text-center= t(:phone_number)
+          %th.text-center= t(:adults)
+          %th.text-center= t(:kids)
+          %th.text-center= t(:car_rental)
+          %th.text-center= t(:airport_transfer)
+          %th.text-center= t(:escort_service)
+          %th.text-center= t(:status)
+          %th
+          %th
+          %th
+
+      %tbody
+        - @bookings.each do |booking|
+          %tr
+            %td.text-center= booking.move_in_at
+            %td.text-center= booking.move_out_at
+            %td.text-center= booking.name
+            %td.text-center= booking.email
+            %td.text-center= booking.phone_number
+            %td.text-center= booking.adults
+            %td.text-center= booking.kids
+            %td.text-center{width: 80}= check_box_tag :car_rental, nil, booking.car_rental?, disabled: true
+            %td.text-center{width: 80}= check_box_tag :airport_transfer, nil, booking.airport_transfer?, disabled: true
+            %td.text-center{width: 80}= check_box_tag :escort_service, nil, booking.escort_service?, disabled: true
+            %td.text-center= t("booking_statuses.#{booking.status}")
+            %td.text-center= link_to t(:show), estate_booking_path(@estate, booking)
+            %td.text-center= link_to t(:edit), edit_estate_booking_path(@estate, booking)
+            %td.text-center= link_to t(:destroy), estate_booking_path(@estate, booking), :method => :delete, :data => { :confirm => 'Are you sure?' }

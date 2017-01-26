@@ -1,0 +1,9 @@
+%section.gray_block.see_also
+  .row
+    .columns.large-centered.large-6.heading
+      %h2
+        %span= t(:also_check_out)
+        %small= t(:best_rental_offers)
+    = render partial: 'estates/estate', collection: @estate_best_offers
+    .columns.large-12.text-center
+      = link_to t(:see_more), estates_path, class: 'see_more'

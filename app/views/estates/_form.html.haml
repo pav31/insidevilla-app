@@ -1,0 +1,87 @@
+#images
+  - unless @estate.images.blank?
+    - @estate.images.each_slice(3) do |images|
+      .row
+        = render partial: 'images/minimal_image', collection: images, as: :image
+
+.clearfix
+
+.row
+  .small-12.medium-6.large-6.medium-centered.columns
+    - id = params[:action] == 'edit' ? 'fileupload' : 'new_estate'
+    = simple_form_for @estate, html: { multipart: true, id: id} do |f|
+      = f.error_notification
+      - if f.object.errors.full_messages.any?
+        - f.object.errors.full_messages.each do |error_message|
+          .row.collapse
+            .small-12.medium-6.large-6.columns
+              = error_message
+              %br
+
+      .form-inputs
+        %h4.text-center= t(:prices)
+        .row
+          - %i[low high pick].each do |season|
+            .large-4.columns
+              - %i[day week month].each do |period|
+                %label= raw t(:price_for, season: t("price_seasons.#{season}"), period: t("price_periods.#{period}"))
+                = f.input :"price_#{period}_#{season}", label: false
+        = f.input :price
+        %h4.text-center= t(:admin_prices)
+        .row
+          - %i[low high pick].each do |season|
+            .large-4.columns
+              - %i[day week month].each do |period|
+                %label= raw t(:price_for, season: t("price_seasons.#{season}"), period: t("price_periods.#{period}"))
+                = f.input :"admin_price_#{period}_#{season}", label: false
+        = f.input :admin_price_cents
+
+        = f.input :title
+        = f.input :address
+        = f.label :latitude
+        = @estate.latitude
+        = f.label :longitude
+        = @estate.longitude
+        = f.input :lat
+        = f.input :long
+        = f.input :description, as: :text, input_html: { rows: 7 , style: 'width: 100%'}
+        = f.input :area_size
+        = f.input :bedrooms
+        = f.input :sea_distance
+        = f.input :airport_distance
+        = f.input :bathrooms
+        = f.label :estate_type
+        = f.select :estate_type, options_for_select(Estate.estate_types.map { |key, _| [t("estate_types.#{key}"), key] }, @estate.estate_type), allow_blank: false
+        = f.label :tenure_type
+        = f.select :tenure_type, options_for_select(Estate.tenure_types.map { |key, _| [t("tenure_types.#{key}"), key] }, @estate.tenure_type), allow_blank: false
+        = f.label :place
+        = f.select :place, options_for_select(Estate.places.map { |key, _| [t("places.#{key}"), key] }, @estate.place), allow_blank: false
+        = f.label :region
+        = f.select :region, options_for_select(Estate.regions.map { |key, _| [t("estate_regions.#{key}"), key] }, @estate.region), allow_blank: false
+        = f.label :estate_class
+        = f.select :estate_class, options_for_select(Estate.estate_classes.map { |key, _| [t("estate_classes.#{key}"), key] }, @estate.estate_class), allow_blank: false
+        = f.label :cleaning_period
+        = f.select :cleaning_period, options_for_select(Estate.cleaning_periods.map { |key, _| [t("cleaning_periods.#{key}"), key] }, @estate.cleaning_period)
+        = f.input :we_manage
+        = f.input :featured
+        = f.input :available
+        = f.input :draft
+        = f.input :comment
+        = f.input :commission_long_term
+        = f.input :commission_short_term
+        = f.input :slider, as: :file
+        = f.input :main_image, as: :file
+        = f.label :images
+        = file_field_tag :attachment, type: :file, multiple: true, name: 'image[attachment]'
+      .form-actions
+        = f.button :submit, class: 'expand'
+
+.clearfix
+
+-# jquery upload template
+%script{id: "template-upload", type: "text/x-tmpl"}
+  .upload
+    {%=o.name%}
+    .progress
+      %span.meter.blue
+        %p.percent

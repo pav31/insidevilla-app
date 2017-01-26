@@ -1,0 +1,13 @@
+.row
+  .small-12.medium-6.large-6.medium-centered.columns
+    = simple_form_for(@comfort) do |f|
+      = f.error_notification
+
+      .form-inputs
+        = f.input :name
+        = f.select :category, options_for_select(Comfort.categories.collect { |k, _| [k.humanize, k] }), allow_blank: false
+        #target
+          = image_tag @comfort.icon(:icon)
+        = f.input :icon, as: :file
+      .form-actions
+        = f.button :submit

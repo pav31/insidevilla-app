@@ -1,0 +1,9 @@
+-# Rails flash messages styled for Zurb Foundation 6
+- flash.each do |name, msg|
+  - if msg.is_a?(String)
+    .row.collapsed
+      .columns
+        #motion-close.callout.ease{:class => "#{name.to_s == 'notice' ? 'success' : 'alert'}", "aria-expanded" => "true", "data-animate" => "slide-in-down slide-out-up", "data-alert" => "", "data-toggler" => ""}
+          %button.close-button{"aria-label" => "Close alert", "aria-controls" => "motion-close", "data-toggle" => "motion-close", :type => "button"}
+            %span{"aria-hidden" => "true"} &times;
+          = content_tag :h4, msg

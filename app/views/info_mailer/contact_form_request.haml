@@ -1,0 +1,12 @@
+.row
+  .small-6.small-centered.column
+    %h2= t('mailer.common.greeting', name: @name)
+.row
+  .small-6.small-centered.columns
+    %p= t('mailer.contact_form_request.header')
+
+    %p= t('mailer.contact_form_request.message')
+    %hr
+    %p= raw  t('mailer.common.visit_us', link: link_to(root_url, root_url, target: '_blank') )
+    %p= t('mailer.common.signature')
+    %p= t(:insidevilla_team)

@@ -1,0 +1,16 @@
+= t('mailer.feedback_created_system.header')
+= estate_feedback_url(@estate, @feedback, locale: locale)
+_____________________________________
+\
+= "#{t(:author)}: #{@feedback.author}"
+= "#{t(:email)}: #{@feedback.email}"
+= "#{t(:city)}: #{@feedback.city}"
+= "#{t(:occupation)}: #{@feedback.occupation}"
+\
+= t(:feedback)
+= @feedback.body
+\
+\---
+\
+- link = edit_admin_feedback_url(@feedback, locale: locale)
+= t('mailer.feedback_created_system.approve_html', link: link)

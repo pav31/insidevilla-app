@@ -1,0 +1,65 @@
+.row
+  .small-6.small-centered.column
+    %h2= t('mailer.common.greeting', name: @booking.name)
+.row
+  .small-6.small-centered.columns
+    %p= t('mailer.booking_created_client.header')
+
+    %table#booking
+      %tbody
+        %tr
+          %td{width: 150}
+            %b= t(:estate_name)
+          %td
+            = link_to @booking.estate.title, estate_url(@booking.estate, locale: locale), target: '_blank'
+        %tr
+          %td
+            %b= t(:move_in_at)
+          %td= @booking.move_in_at
+        %tr
+          %td
+            %b= t(:move_out_at)
+          %td= @booking.move_out_at
+        %tr
+          %td
+            %b= t(:name)
+          %td= @booking.name
+        %tr
+          %td
+            %b= t(:email)
+          %td= @booking.email
+        %tr
+          %td
+            %b= t(:phone_number)
+          %td= @booking.phone_number
+        %tr
+          %td
+            %b= t(:adults)
+          %td= @booking.adults
+        %tr
+          %td
+            %b= t(:kids)
+          %td= @booking.kids
+        %tr
+          %td
+            %b= t(:comment)
+          %td= @booking.comment
+        %tr
+          %td
+            %b= t(:car_rental)
+          %td= check_bool(@booking.car_rental?)
+        %tr
+          %td
+            %b= t(:airport_transfer)
+          %td= check_bool(@booking.airport_transfer?)
+        %tr
+          %td
+            %b= t(:escort_service)
+          %td= check_bool(@booking.escort_service?)
+
+    %p= t('mailer.booking_created_client.message_html')
+    %hr
+    %p= t('mailer.common.thanks_for_choosing_us_html')
+    %p= raw t('mailer.common.visit_us', link: link_to(root_url, root_url, target: '_blank') )
+    %p= t('mailer.common.signature')
+    %p= t(:insidevilla_team)

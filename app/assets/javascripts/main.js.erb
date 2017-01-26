@@ -1,0 +1,37 @@
+$(document).on('ready page:load', function() {
+
+  // Reviews BG
+  $("#customer_reviews").backstretch("<%= asset_path 'review_bg.png' %>");
+
+  // services_header BG
+  $("#services_header").backstretch("<%= asset_path 'services1.png' %>");
+
+  //Main Page form button
+  $(".button_search_open").click(function () {
+    $(".orbit_form").toggleClass("MarginTop");
+    $(".button_search_open").toggleClass("FullWidth");
+    $(".button_text").toggle();
+  });
+
+  // Catalogue Page price-filter caret toggle
+  $(".catalogue_price_filter").click(function () {
+    $(".fa-caret-down").toggleClass("fa-caret-up");
+  });
+
+  // ID Search
+  $(".id_search").click(function () {
+    $(".id_search_form").toggle();
+    $(".id_search").toggle();
+  });
+
+  // Object Facilities open
+  $("#show_other_comforts").click(function () {
+    $("#object_facilities_other").slideToggle("fast");
+    $("#show_other_comforts > a").toggle();
+  });
+
+  // Adv Search Catalogue
+  $(".advanced_search_open").click(function () {
+    $(".advanced_search").slideToggle("fast");
+  });
+});

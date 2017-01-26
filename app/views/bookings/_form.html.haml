@@ -1,0 +1,53 @@
+= simple_form_for [@estate, @booking ||= Booking.new], class: "fdatepicker" do |f|
+  = f.error_notification
+  .row
+    .columns.large-6.small-12
+      = f.input :move_in_at, as: :string, placeholder: t(:date), input_html: {class: 'datepicker', "data-book-from": '', "data-toggle": "datepicker"}, label: t(:move_in_at), required: true
+    .columns.large-6.small-12
+      = f.input :move_out_at, as: :string, placeholder: t(:date), input_html: {class: 'datepicker', "data-book-to": ''}, label: t(:move_out_at), required: true
+  .row
+    .columns.large-12.small-12
+      = f.input :name, required: true, label: t(:name)
+  .row
+    .columns.large-12.small-12
+      = f.input :phone_number, required: false, label: t(:phone_number)
+  .row
+    .columns.large-12.small-12
+      = f.input :email, required: true, label: t(:email)
+  .row
+    .columns.large-6.small-12
+      = f.input :adults, value: 1, required: true, label: t(:adults)
+    .columns.large-6.small-12
+      = f.input :kids, value: 0, required: true, label: t(:kids)
+  .row
+    .columns.large-12.small-12
+      %span= t(:additional)
+      .row
+        .columns.large-4.small-12
+          %div.checkbox
+            = f.input :car_rental, checked: @booking&.car_rental?, label: t(:car_rental)
+        .columns.large-4.small-12
+          %div.checkbox
+            = f.input :airport_transfer, checked: @booking&.airport_transfer?, label: t(:airport_transfer)
+        .columns.large-4.small-12.end
+          %div.checkbox
+            = f.input :escort_service, checked: @booking&.escort_service?, label: t(:escort_service)
+  .row
+    .columns.large-12.small-12
+      = f.input :comment, as: :text, rows: 3, label: t(:comment)
+  - if signed_in?
+    .row
+      .columns
+        %div.checkbox
+          = f.input :status, as: :radio_buttons,
+                             collection: Booking.statuses.to_a.map {|key, _| [t("booking_statuses.#{key}"), key] },
+                             selected: @booking.status,
+                             label: t(:status)
+  .row
+    .columns.large-12.small-12.text-center
+      - if @booking.valid? && current_page?(edit_estate_booking_path(@estate, @booking))
+        = f.submit t(:save), class: 'button'
+        = link_to t(:cancel), estate_booking_path(@estate, @booking), class: 'button warning'
+      - else
+        = f.submit t(:request_booking), class: 'button'
+

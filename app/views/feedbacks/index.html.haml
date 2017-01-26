@@ -1,0 +1,26 @@
+%section.object_reviews
+  .row
+    .columns.large-12
+      %h4.text-center= t(:feedbacks)
+      - @feedbacks.in_groups_of(2, false) do |group|
+        .row
+          - group.each do |feedback|
+            .columns.medium-6.review_block_container
+              .review_block
+                .row.collapsed
+                  .columns.medium-6
+                    %p.review_author
+                      %b= feedback.author
+                      %i.city= feedback.city
+                    %p
+                      %b= t(:occupation)
+                      = feedback.occupation
+                  .columns.medium-6.review_block_container
+                    %b= link_to feedback.estate.title, estate_path(feedback.estate)
+                    %p= truncate(feedback.body, length: 300)
+                .row.collapsed
+                  .column.text-center
+                    = link_to t(:show), estate_feedback_path(feedback.estate, feedback)
+                    - if signed_in?
+                      \|
+                      = link_to t(:edit), edit_admin_feedback_path(feedback)

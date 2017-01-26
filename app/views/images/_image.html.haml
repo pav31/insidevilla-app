@@ -1,0 +1,19 @@
+- estate = image.imageable
+.large-4.medium-4.small-4.columns
+  .img-wrapper-content
+    = image_tag image.attachment(:catalog)
+  .labels
+    %span.price.label= raw t(:price_catalog, price: humanized_money(estate.price_month_low_cents))
+    %span.price.label= t(:bedrooms_count, count: estate.bedrooms)
+    %span.place.label
+      = estate.address
+      -#TODO: get area name with geocoder
+    .img-wrapper-overlay-content.centered
+      = link_to t(:details), estate_path(estate), class: 'button'
+      - if params[:action] == "edit"
+        \|
+        = link_to t(:edit), edit_image_path(image)
+        \|
+        = link_to t(:delete), image, method: :delete, data: { confirm: 'Are you sure?', remote: true }
+
+  %h5= estate.title

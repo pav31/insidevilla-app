@@ -1,0 +1,29 @@
+%section.main_menu#main_menu
+  .row
+    .columns.large-12.small-12
+      %nav.top-bar-left#left-menu
+        %ul.menu
+          %li
+            = link_to t(:for_rent), estates_path(tenure_type: :rent)
+          %li
+            = link_to t(:for_sale), estates_path(tenure_type: :sale)
+          %li
+            = link_to t('static_pages.services'), static_page_path('service')
+          %li
+            = link_to t('static_pages.info'), static_page_path('info')
+          %li
+            = link_to t('static_pages.about'), static_page_path('about')
+          - if user_signed_in?
+            %li
+              = link_to t(:comforts), comforts_path
+            %li
+              = link_to t(:sign_out), destroy_user_session_path, method: :delete
+
+      %nav.top-bar-right#right-menu
+        %ul.menu.dropdown{"data-dropdown-menu": ""}
+          %li{'aria-expanded': true}
+            %button.button.text-center= t("menu.languages.#{locale}")
+            %ul.menu.text-center
+              - (I18n.available_locales - [locale]).each do |lang|
+                %li
+                  = link_to t("menu.languages.#{lang}"), change_locale_path(lang)

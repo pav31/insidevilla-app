@@ -1,0 +1,11 @@
+.row.collapse
+  .small-12.columns
+    %h1.text-center
+      = t(:editing)
+
+= render 'form'
+.row.collapse
+  .small-6.small-centered.columns
+    = link_to t(:show), @image
+    \|
+    = link_to t(:back), images_path

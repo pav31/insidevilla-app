@@ -1,0 +1,456 @@
+ru:
+  sitetitle: 'Insidevilla'
+  settings:
+    menu:
+      label: 'Настройки'
+    success: 'Успешно обновлены'
+    attributes:
+      viber:
+        name: 'Viber'
+      whatsapp:
+        name: 'Whatsapp'
+      price_margin:
+        name: 'Предел цены для похожих объектов (%)'
+      latitude:
+        name: 'Широта'
+      longitude:
+        name: 'Долгота'
+      map_offset:
+        name: 'Смещение координат (градусы)'
+      calendar_number_of_months:
+        name: 'Отображать кол-во месяцев в календаре'
+      feedback_length:
+        name: 'Макс. длина отзыва'
+      system_email_feedback:
+        name: 'Значение для обхождения валидации почты отзыва'
+      system_email_from:
+        name: 'Системный email <от кого>'
+      system_email_to:
+        name: 'Системный email <кому>'
+      no_reply_email:
+        name: '<no-reply> email'
+      contact_form_subject:
+        name: 'Тема письма контактной формы'
+      vk_url:
+        name: 'Ссылка на vk'
+      facebook_url:
+        name: 'Ссылка на facebook'
+      instagram_url:
+        name: 'Ссылка на instagram'
+      youtube_url:
+        name: 'Ссылка на youtube'
+    index:
+      name: 'Название настройки'
+      value: 'Значение'
+  contact_form:
+    fields:
+      form_title: "Форма обратной свази"
+      name: "Имя*"
+      email: "E-mail*"
+      phone_number: "Телефон"
+      message: "Ваше сообщение*"
+      nickname: "Nickname"
+      leave_blank: "Это поле должно быть пустым!"
+      password: 'Пароль'
+    request:
+      title: "Техническая информация о пользователе"
+      remote_ip: "IP адрес"
+      user_agent: "Браузер"
+  feedback_form:
+    fields:
+      email: "Электронная почта"
+      author: "Ваши имя и фамилия"
+      city: "Город"
+      occupation: "Профессия"
+      photo: "Фото"
+      body: "Сообщение"
+  flash:
+    notices:
+      email_sent: "Спасибо! Ваше сообщение оправлено. Мы свяжемся с Вами в ближайшее время"
+      service_booked: "Спасибо! Ваша заявка будет рассмотрена в ближайшее время и наш сотрудник свяжется с Вами"
+    bookings:
+      create:
+        notice: "Спасибо! Ваша заявка успешно отправлена. Мы свяжемся с Вами в ближайшее время"
+    errors:
+      cannot_send: 'Не удалось оправить сообщение. Все обязательные поля должны быть заполнены'
+      too_long: "Максимальное допустимое число  символов %{count}"
+  errors:
+    message:
+      invalid: "неверное значение"
+      move_in_at: "не должно быть в прошлом"
+      move_out_at: "должено быть больше даты заезда"
+      date_not_available: "Эта дата не доступна для бронирования"
+    messages:
+      already_exists: "уже существует"
+  views:
+    pagination:
+      first: "&laquo;"
+      last: "&raquo;"
+      previous: "&lsaquo;"
+      next: "&rsaquo;"
+      truncate: "&hellip;"
+    helpers:
+      page_entries_info:
+        one_page:
+          display_entries:
+            zero: "Не %{entry_name} найдена"
+            one: "Показывается <b>1</b> %{entry_name}"
+            other: "Показываются <b>все %{count}</b> %{entry_name}"
+        more_pages:
+          display_entries: "Показываются %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> из <b>%{total}</b>"
+  ckeditor:
+    page_title: 'CKEditor Менеджер Файлов'
+    confirm_delete: 'Удалить файл?'
+    buttons:
+      cancel: 'Отмена'
+      upload: 'Закачать'
+      delete: 'удалить'
+      next: 'Дальше'
+  static_pages:
+    menu: Статические страницы
+    pages: Страницы
+    main: Основная
+    secondary: Второстепенная
+    service:  Услуги
+    services:  Услуги
+    info: Инфо
+    legal: Легальная
+    about: О нас
+    non_categorized: Без Категории
+  estate_types:
+    apartment: Апартаменты
+    villa: Вилла
+    house: Дом
+    land: Земля
+  tenure_types:
+    rent: Аренда
+    sale: Продажа
+  places:
+    phuket: Пхукет
+    samui: Самуи
+    bali: Бали
+  estate_regions:
+    # Phuket
+    phuket_town: Пхукет-таун
+    phuket_kathu: Кату
+    phuket_panwa: Панва
+    phuket_chalong: Чалонг
+    phuket_rawai: Равай
+    phuket_nai_harn: Най Харн
+    phuket_kata: Ката
+    phuket_karon: Карон
+    phuket_kalim: Калим
+    phuket_patong: Патонг
+    phuket_kamala: Камала
+    phuket_bang_tao: Банг Тао
+    phuket_surin: Сурин
+    # Samui
+    samui_maenam: Маенам
+    samui_bophut: Бопут
+    samui_choeng_mon: Чонг Мон
+    samui_chaweng: Чавенг
+    samui_lamai: Ламай
+    samui_hua_thanon: Хуа Танон
+    samui_bang_kao: Банг Као
+    samui_thong_krut: Тонг Крут
+    samui_taling_ngam: Талинг Нгам
+    samui_lipa_noi: Липа Ной
+    samui_nathon: Натон
+    samui_laem_yai: Лаэм-Яй
+    samui_bang_bor: Банг По
+    samui_baan_tai: Бан Тай
+    # Bali
+    bali_amed: Амед
+    bali_ubud: Убуд
+    bali_denpasar: Денпасар
+    bali_candidasa: Чандидаса
+    bali_tanag_lot: Тана Лот
+    bali_canggu: Чангу
+    bali_seminyak: Семиньяк
+    bali_kerobokan: Кробокан
+    bali_petitenget: Петитингет
+    bali_kuta: Кута
+    bali_legian: Легиан
+    bali_sanur: Санур
+    bali_jimbaran: Джимбаран
+    bali_uluwatu: Улувату
+    bali_nusa_dua: Нуса Дуа
+    bali_benoa: Беноа
+    bali_bukit: Букит
+    bali_pemuteran: Пемутеран
+
+  estate_classes:
+    economy: Эконом
+    standard: Стандарт
+    premium: Премиум
+    luxurious: Люкс
+  cleaning_periods:
+    every_day: Каждый день
+    every_week: Каждую неделю
+    every_month: Каждый месяц
+    2_times_a_week: 2 раза в неделю
+    3_times_a_week: 3 раза в неделю
+    4_times_a_week: 4 раза в неделю
+    5_times_a_week: 5 раз в неделю
+    6_times_a_week: 6 раз в неделю
+    2_times_a_month: 2 раза в месяц
+    3_times_a_month: 3 раза в месяц
+  price_periods:
+    day: День
+    week: Неделя
+    month: Месяц
+    long_term: Долгий срок
+  price_seasons:
+    low: Низкий сезон
+    high: Высокий сезон
+    pick: Пик сезона
+  sea_distances:
+    under_one: менее 1 км
+    one_three: 1-3 км
+    three_five: 3-5 км
+  bedrooms_count: &bedrooms_count
+    zero: нет спелен
+    one: '%{count} спальня'
+    few: '%{count} спальни'
+    many: '%{count} спален'
+    other: '%{count} спален'
+  bathrooms_count: &bathrooms_count
+    zero: нет ванн
+    one: '%{count} ванная'
+    few: '%{count} ванные'
+    many: '%{count} ванн'
+    other: '%{count} ванн'
+  booking_statuses:
+    pending: "Ожидает подтверждения"
+    approved: "Подтвержден"
+    canceled: "Отменен"
+    completed: "Завершен"
+    unavailable: "Недоступно"
+  change_booking_statuses:
+    pending: "Ожидать подтверждения"
+    approved: "Подтвердить"
+    canceled: "Отмененить"
+    completed: "Завершить"
+    unavailable: "Недоступно"
+  labels:
+    name: "Имя:"
+    title: "Название:"
+    main: "Главная:"
+    featured: "Featured:"
+    slider: "Слайдер:"
+  agency_phuket: |
+    Агенство Недвижимости
+  yes: Да
+  no: Нет
+  for_sale: Продажа
+  estate_new: Новый объект
+  estate_created: 'Объект успешно создан'
+  estate_updated: 'Объект успешно обновлен'
+  estate_destroyed: 'Объект успешно удален'
+  comfort_created: 'Удобство успешно создано'
+  comfort_updated: 'Удобство успешно обновлено'
+  comfort_destroyed: 'Удобство успешно удалено'
+  service: Услуги
+  info: Инфо
+  about_us: О нас
+  for_rent: Аренда
+  viber: Viber
+  whatsapp: WhatsApp
+  estates: Объекты
+  about_estate: Об этом объекте
+  show_all_photos: Посмотреть все фото
+  description: Описание
+  details: 'Подробнее'
+  price_catalog: 'от <span>%{price}</span> THB'
+  edit: "Изменить"
+  editing: "Редактирование"
+  images: "Фотографии"
+  delete: "Удалить"
+  comforts: "Удобства"
+  comfort: "Удобство"
+  comfort_new: "Новое удобство"
+  static_page_new: "Навая страница"
+  #todo: change to city or something more suitable
+  place: "Остров"
+  region: "Район"
+  #todo: change to city or something more suitable
+  place_name: "Остров:"
+  region_name: "Район:"
+  price: "Цена"
+  price_per_period: "Цена: от %{price} THB в %{period}"
+  price_per_period_span: "Цена: от <span>%{price} THB</span> в %{period}"
+  move_in_at: "Заезд"
+  move_out_at: "Выезд"
+  date: "Дата"
+  request_booking: "Запросите бронирование"
+  show_all: "Показать все"
+  hide: "Скрыть"
+  price_baht_small: "Цена, <small>THB</small>"
+  see_also: "Смотрите также"
+  email_info: "info@insidevilla.com"
+  send: "Отправить"
+  feedbacks: "Отзывы"
+  leave_feedback: "Оставить отзыв"
+  customer_feedbacks: "Отзывы наших клиентов"
+  approved: "Подтвержден"
+  not_approved: "Не подтвержден"
+  id: "ID"
+  book_now: "Запросите бронирование"
+  learn_more_about_phuket: "Узнайте больше о Пхукете"
+  send_request: "Отправить заявку"
+  regions: "Районы"
+  seasons: "Сезоны"
+  beaches: "Пляжи"
+  entertainment: "Развлечения"
+  see_more: "Смотреть ещё"
+  also_check_out: "Также посмотрите"
+  best_rental_offers: "лучшие предложения по аренде"
+  upon_request: "По запросу"
+  bathrooms: "Ванные"
+  bedrooms: "Спальни"
+  tenure_type: "Тип договора"
+  estate_type: "Тип"
+  all: "Все"
+  search: "Поиск"
+  sort_by_price: "Сортировать по цене"
+  sort_by_date: "Сортировать по дате"
+  shopping: "Шопинг"
+  transfer: "Трансфер"
+  excursions: "Экскурсии"
+  rental: "Аренда Транспорта"
+  pages: "Страницы"
+  price_for: "<b>%{season}</b> за <b>%{period}</b>"
+  find: "Найти"
+  sea_distance: "До пляжа"
+  search_by_id: "Поиск по ID"
+  advanced_search: "Расширенный поиск"
+  map: "Карта"
+  open_search: "Открыть поиск"
+  close_search: "Закрыть поиск"
+  check_some_options: "Посмотрите некоторые варианты размещения"
+  why_clients_choose_us: "Почему клиенты выбирают нас"
+  we_support_our_guests: "Мы заботимся о наших гостях"
+  owner_pays_commission: "Комиссию платит собственник"
+  we_are_team: "Мы - команда"
+  we_love_what_we_do: "Мы любим свое дело"
+  five_steps: "5 шагов работы с нами"
+  leave_request: "Оставьте заявку"
+  step_1: "%{link}<br>или<br>позвоните нам"
+  step_3: "Индивидуальное предложение<br>для Вас и выбор<br>понравившегося Вам варианта"
+  step_5: "Наслаждение<br>отдыхом на<br>Пхукете"
+  step_2: "Уточнение и<br>согласование<br>деталей"
+  step_4: "Составление<br>договора и<br>предоплата"
+  first_slider_details: "Описание слайда"
+  request_received: "Заявка получена"
+  leave_feedback: "Оставить отзыв"
+  min_price: "Цена от"
+  max_price: "Цена до"
+  baht_month: "Бат/Месяц"
+  baht_day: "Бат/День"
+  sign_out: "Выйти"
+  booking_request: "Заявка на бронирование"
+  name: "ФИО"
+  phone_number: "Номер телефона"
+  email: "Email"
+  adults: "Взрослых"
+  kids: "Детей"
+  additional: "Дополнительно"
+  car_rental: "Аренда транспорта"
+  airport_transfer: "Трансфер из аэропорта"
+  escort_service: "Эскорт-услуги"
+  comment: "Комментарий"
+  are_you_sure: "Вы уверенны?"
+  feedback_created: "Спасибо! Ваш отзыв отправлен на проверку."
+  feedback_updated: "Отзыв успешно обновлен"
+  feedback_destroyed: "Отзыв успешно удален"
+  calendar: "Календарь"
+  all_bookings: "Показать все бронирования"
+  bookings: "Бронирования"
+  estate: "Объект"
+  back_to_estate: "Вернуться к объекту"
+  show: "Показать"
+  destroy: "Удалить"
+  author: "Имя"
+  city: "Город"
+  occupation: "Профессия"
+  estate_id: "ID объекта"
+  feedback: "Отзыв"
+  new_booking: "Новое бронирование"
+  latitude: "Широта"
+  longitude: "Долгота"
+  prices: "Цены"
+  reset: "Сброс"
+  news_and_promo: "Новости и акции"
+  info_block: "Инфо-блок"
+  join_us: "Присоединяйтесь к нам!"
+  copyright_html: "&copy; 2015 InsideVilla"
+  contacts: "Контакты"
+  apartments: "Апартаменты"
+  houses: "Дома"
+  villas: "Виллы"
+  lands: "Земля"
+  projects: "Проекты"
+  subscribe: "Подписаться"
+  estate_name: "Название объекта"
+  link: "Ссылка"
+  about: "о"
+  feedback_approved: "Отзыв был подтвержден"
+  feedback_disapproved: "Отзыв стал неподтвержденным"
+  approval: "Подтверждение"
+  disapprove: "Отклонить"
+  approve: "Подтвердить"
+  cancel: "Отменить"
+  pending: "Ожидает подтверждения"
+  complete: "Завершен"
+  unavailable: "Недоступно"
+  status: "Статус"
+  back: "Назад"
+  admin_prices: "Цены админа"
+  period: "Период"
+  customer_price: "Цена для клиента"
+  admin_price: "Цена админа"
+  coordinates: "Координаты"
+  owner_info: "Сведения о влядельце"
+  commission: "Комиссия"
+  additional_info: "Дополнительные сведения"
+  general_data: "Основные данные"
+  closest_beach: "Ближайший пляж"
+  number_of_bedrooms: "Спален: %{num}"
+  number_of_bathrooms: "Ванных комнат: %{num}"
+  number_of_single_beds: "Односпальных кроватей: %{num}"
+  number_of_double_beds: "Двуспальных кроватей: %{num}"
+  to_the_airport: "До аэропорта: %{num}"
+  estate_class: "Класс:"
+  cleaning_period: "Уборка:"
+  menu:
+    languages:
+      ru: "РУС"
+      en: "EN"
+  save: "Сохранить"
+  booking_pending: "Бронирование в ожидании"
+  booking_approved: "Бронирование подтверждено"
+  booking_completed: "Бронирование завершено"
+  booking_canceled: "Бронирование отменено"
+  booking_unavailable: "Бронирование не доступно"
+  change_status: "Изменить статус"
+  new_image: "Добавить изображение"
+  reset_settings: "Сбросить настройки"
+  subscription_created: "Вы успешно подписались на нашу рассылку"
+  subscription_destroyed: "Вы были отписаны от рассылки"
+  continue: Продолжить
+  unsubscribe: "Отписаться от рассылки"
+  unsubscribe_content: "Вы действительно не желаете больше  получать письма с новостями и акциями?"
+  insidevilla_team: "команда Insidevilla"
+  mailer_templates:
+    send_email:
+      send_email: Отправить письмо
+      send_email_title: Отправить тестовое письмо
+      success: Письмо успешно отправлено
+      test_email: Тестовое письмо
+  chars_left: "осталось"
+  feedback_photo_recommended: "Фотография (Оптимальный размер 250x250px, до 3 МБ)"
+  read_all: "Читать полностью"
+  months: "%{start} - %{end}"
+  previous: «
+  next: »
+  nothing_found: "Ничего не найдено"

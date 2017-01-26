@@ -1,0 +1,65 @@
+.row
+  -# Todo: remove small-6 for h-titles in views like so...
+  .column.text-center
+    %h1.text-center= t(:booking_request)
+.row
+  .small-6.small-centered.columns
+    %table#booking
+      %tbody
+        %tr
+          %td{width: 150}
+            %b= t(:estate_name)
+          %td
+            = link_to @booking.estate.title, estate_bookings_path(@estate)
+        %tr
+          %td
+            %b= t(:move_in_at)
+          %td= @booking.move_in_at
+        %tr
+          %td
+            %b= t(:move_out_at)
+          %td= @booking.move_out_at
+        %tr
+          %td
+            %b= t(:name)
+          %td= @booking.name
+        %tr
+          %td
+            %b= t(:email)
+          %td= @booking.email
+        %tr
+          %td
+            %b= t(:phone_number)
+          %td= @booking.phone_number
+        %tr
+          %td
+            %b= t(:adults)
+          %td= @booking.adults
+        %tr
+          %td
+            %b= t(:kids)
+          %td= @booking.kids
+        %tr
+          %td
+            %b= t(:comment)
+          %td= @booking.comment
+        %tr
+          %td
+            %b= t(:car_rental)
+          %td= check_box_tag :car_rental, nil, @booking.car_rental?, disabled: true
+        %tr
+          %td
+            %b= t(:airport_transfer)
+          %td= check_box_tag :airport_transfer, nil, @booking.airport_transfer?, disabled: true
+        %tr
+          %td
+            %b= t(:escort_service)
+          %td= check_box_tag :escort_service, nil, @booking.escort_service?, disabled: true
+        %tr
+          %td
+            %b= t(:status)
+          %td= t("booking_statuses.#{@booking.status}")
+.row
+  .small-6.small-centered.columns.text-center
+    = link_to t(:all_bookings), estate_bookings_path(@estate), class: 'button'
+    = link_to t(:edit), edit_estate_booking_path(@estate, @booking), class: 'button warning'

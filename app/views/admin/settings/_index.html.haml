@@ -1,0 +1,19 @@
+%div
+  = semantic_form_for :settings, method: :put, url: path do |f|
+    %table#settings.index_table.index
+      %thead
+        %tr
+          %th{style: "width: 30%"}= t('settings.index.name')
+          %th= t('settings.index.value')
+      %tbody
+        - collection.each_pair do |name, value|
+          %tr.odd
+            %td
+              %strong= f.label t("settings.attributes.#{name}.name", default: name)
+            %td
+              .form
+                %ol= f.input name, settings_field_options(name)
+
+    = f.submit
+
+    = link_to t(:reset_settings), reset_settings_path, method: :delete, class: 'button right', data: { confirm: t(:are_you_sure) }

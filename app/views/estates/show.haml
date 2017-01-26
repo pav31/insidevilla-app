@@ -1,0 +1,221 @@
+= content_for :js do
+  = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAPS_API_KEY']}&sensor=false"
+
+- price_period = session[:price_period] || 'month'
+
+%section.object_header
+  #object_header_photo
+  .row.price_label
+    .columns.medium-8
+      %h2
+        = @estate.title
+        - if user_signed_in?
+          = link_to t(:edit), edit_estate_path(@estate), class: 'button small'
+
+        %small
+          = t(:id)
+          = @estate.id
+      %ul.header_villa_about
+        -#TODO: REFACTOR
+        %li
+          = image_tag "estate_types.png", class: "header_villa_image"
+          = t("estate_types.#{@estate.estate_type}")
+        %li
+          = image_tag "bedrooms.png", class: "header_villa_image"
+          = t(:bedrooms_count, count: @estate.bedrooms)
+        %li
+          = image_tag "bathrooms.png", class: "header_villa_image"
+          = t(:bathrooms_count, count: @estate.bathrooms)
+        %li
+          = image_tag "location.png", class: "header_villa_image"
+          = t("estate_regions.#{@estate.region}")
+    .columns.medium-4
+      .object_booking_form#object_booking_form
+        .object_price
+          = raw t(:price_per_period_span, price: money_without_cents(@estate.send("price_#{price_period}_low")), period: t("price_periods.#{price_period}"))
+        = render partial: 'mobile_booking'
+%section.mobile_booking
+  .object_header_price
+    = raw t(:price_per_period_span, price: money_without_cents(@estate.send("price_#{price_period}_low")), period: t("price_periods.#{price_period}"))
+  = render partial: 'mobile_booking'
+%section.object_about
+  .row
+    .columns.medium-8
+      .row
+        .columns
+          %h3= t(:about_estate)
+      .row
+        .columns
+          .photo_gallery
+            .my-gallery{itemscope: "", "data-pswp-uid": 1}
+              - @estate.images.each_with_index do |image, idx|
+                - klass = idx == 11 ? 'last_visible' : idx > 11 ? 'hidden' : ''; # display 12 images for preview and hide the rest
+                %figure{itemprop: "associatedMedia", itemscope: "", class: klass }
+                  = link_to image.attachment(:gallery_large), itemprop: "contentUrl", "data-size": image.dimensions.to_s do
+                    = image_tag image.attachment(:gallery_small), alt: image.name
+                    - if klass == 'last_visible'
+                      .last_visible_see_all= t(:show_all)
+                  %figcaption
+                    = image.name
+
+      .row
+        .columns.object_description.end
+          %h4= t(:description)
+          = raw @estate.description
+      .row
+        .columns.object_facilities.end
+          %h4= t(:comforts)
+          %ul
+            - if @estate.airport_distance&.send(:>, 0)
+              %li.comfort.columns.large-4.medium-6
+                = image_tag "aero.png", class: "facilities_pic"
+                = t(:to_the_airport, num: number_to_human(@estate.airport_distance, units: :distance))
+
+            - if @estate.sea_distance&.send(:>, 0)
+              %li.comfort.columns.large-4.medium-6
+                = image_tag "sea_distance.png", class: "facilities_pic"
+                = @estate.sea_distance_to_s
+
+            - if @estate.bedrooms&.send(:>, 0)
+              %li.comfort.columns.large-4.medium-6
+                = image_tag "bedrooms.png", class: "facilities_pic"
+                = t(:number_of_bedrooms, num: @estate.bedrooms)
+
+            - if @estate.bathrooms&.send(:>, 0)
+              %li.comfort.columns.large-4.medium-6
+                = image_tag "bathrooms.png", class: "facilities_pic"
+                = t(:number_of_bathrooms, num: @estate.bathrooms)
+
+            - if @estate.single_beds&.send(:>, 0)
+              %li.comfort.columns.large-4.medium-6
+                = image_tag "single_beds.png", class: "facilities_pic"
+                = t(:number_of_single_beds, num: @estate.single_beds)
+
+            - if @estate.double_beds&.send(:>, 0)
+              %li.comfort.columns.large-4.medium-6
+                = image_tag "double_beds.png", class: "facilities_pic"
+                = t(:number_of_double_beds, num: @estate.double_beds)
+
+            %li.comfort.columns.large-4.medium-6.end
+              = image_tag "estate_class.png", class: "facilities_pic"
+              = t(:estate_class)
+              = t("estate_classes.#{@estate.estate_class}")
+
+            - if @estate.cleaning_period?
+              %li.comfort.columns.large-4.medium-6.end
+                = image_tag "cleaning_service.png", class: "facilities_pic"
+                = t(:cleaning_period)
+                = t("cleaning_periods.#{@estate.cleaning_period}")
+
+            - @estate.comforts.main.each do |comfort|
+              %li.comfort.columns.large-4.medium-6.end
+                = image_tag comfort.icon(:icon), class: "facilities_pic"
+                = comfort.name
+
+          - if @estate.comforts.secondary.any?
+            %ul#object_facilities_other
+              - @estate.comforts.secondary.each do |comfort|
+                %li.comfort.columns.large-4.medium-6.end
+                  = image_tag comfort.icon(:icon), class: "facilities_pic"
+                  = comfort.name
+            .text-right#show_other_comforts
+              %a{href: "javascript://"}= t(:show_all)
+              %a{href: "javascript://", style: "display:none;"}= t(:hide)
+      .row
+        .columns.medium-3.large-2.object_pricing
+          %h4= raw t(:price_baht_small)
+        .columns.medium-9.large-10.object_pricing.text-center
+          = render partial: 'price_table', locals: { estate: @estate }
+      - if @estate.we_manage? || signed_in?
+        .row
+          .columns.object_bookings
+            %h4= t(:calendar)
+            = month_calendar number_of_months: Settings.calendar_number_of_months do |date|
+              - css_classes = [].to_set
+              - @bookings.each do |booking|
+                - css_classes << booking.booked_css_class(date)
+              - css_classes << 'today' if date == Date.current
+              %div{class: css_classes.to_a.join(' ')}
+                = date.day
+
+            = link_to t(:bookings), estate_bookings_path(@estate)
+
+  %section.object_reviews.clearfix
+    .row
+      .columns.large-12
+        %h4= t(:feedbacks)
+        .row
+          - @feedbacks.each do |feedback|
+            .columns.large-6
+              .row
+                .columns.large-12.review_block_container
+                  .review_block
+                    %p.review_author
+                      %b= feedback.author
+                      %i.city= feedback.city
+                    %p= feedback.body.truncate_words(25, omission: '...')
+                    = link_to t(:read_all), estate_feedback_path(@estate, feedback), class: 'float-right'
+                    .clearfix
+          .columns.large-12.review_block_container.give_review
+            = link_to t(:leave_feedback), new_estate_feedback_path(@estate)
+  %section.object_map
+    .row
+      .columns
+        %h4= t(:map)
+    .google_map#google_map
+  %section.mobile_booking
+    = render partial: 'mobile_booking'
+
+%section.catalogue_accommodations.clearfix
+  .row
+    .columns.large-centered.large-5.heading
+      %h2
+        -#todo: check en translation
+        %span= t(:see_also)
+
+    = render partial: 'estate', collection: @similar
+
+= render 'estates/modals/booknow'
+= render 'estates/modals/photoswipe'
+
+:javascript
+  function showGoogleMaps() {
+
+      var latLng = new google.maps.LatLng(gon.lat, gon.lng);
+
+      var mapOptions = {
+          zoom: 14, // initialize zoom level - the max value is 21
+          streetViewControl: false, // hide the yellow Street View pegman
+          scaleControl: true, // allow users to zoom the Google Map
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          center: latLng,
+          draggable: false,
+          scrollwheel: false,
+          navigationControl: false,
+          mapTypeControl: false,
+          scaleControl: false,
+      };
+
+      var villa_map = {
+        villa: {
+          center: {lat: gon.lat, lng: gon.lng},
+        }
+      };
+
+      map = new google.maps.Map(document.getElementById('google_map'),
+          mapOptions);
+      for (var villa in villa_map) {
+        // Add the circle for this city to the map.
+        var cityCircle = new google.maps.Circle({
+          strokeColor: '#37969e',
+          strokeOpacity: 0.8,
+          strokeWeight: 2,
+          fillColor: '#37969e',
+          fillOpacity: 0.35,
+          map: map,
+          center: villa_map[villa].center,
+          radius: 350
+        });
+      }
+  }
+  google.maps.event.addDomListener(window, 'load', showGoogleMaps);

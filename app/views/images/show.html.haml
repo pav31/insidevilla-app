@@ -1,0 +1,13 @@
+.row
+  .small-12.large-6.columns
+    = image_tag @image.attachment(:catalog), class: 'th'
+  .small-12.large-6.columns
+    %p
+      = t('labels.title')
+      %span= @image.name
+    %p
+.row
+  .small-12.large-6.columns
+    = link_to t(:edit), edit_image_path(@image)
+    \|
+    = link_to t(:back), images_path

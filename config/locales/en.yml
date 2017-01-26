@@ -1,0 +1,448 @@
+en:
+  sitetitle: Insidevilla
+  settings:
+    menu:
+      label: 'Settings'
+    success: 'Successfully updated'
+    attributes:
+      viber:
+        name: 'Viber'
+      whatsapp:
+        name: 'Whatsapp'
+      price_margin:
+        name: 'Price Margin for similar estates (%)'
+      latitude:
+        name: 'Latitude'
+      longitude:
+        name: 'Longitude'
+      map_offset:
+        name: 'Map coordinates offset (degrees)'
+      calendar_number_of_months:
+        name: 'Number of months to display'
+      feedback_length:
+        name: 'Max feedback length'
+      system_email_feedback:
+        name: 'Value to bypass feedback email validation'
+      system_email_from:
+        name: 'System email <from>'
+      system_email_to:
+        name: 'System email <to>'
+      no_reply_email:
+        name: '<no-reply> email'
+      contact_form_subject:
+        name: 'Contact form subject'
+      vk_url:
+        name: 'vk profile link'
+      facebook_url:
+        name: 'facebook profile link'
+      instagram_url:
+        name: 'instagram profile link'
+      youtube_url:
+        name: 'youtube profile link'
+    index:
+      name: 'Name of setting'
+      value: 'Value'
+  views:
+    pagination:
+      first: "&laquo;"
+      last: "&raquo;"
+      previous: "&lsaquo;"
+      next: "&rsaquo;"
+      truncate: "&hellip;"
+    helpers:
+      page_entries_info:
+        one_page:
+          display_entries:
+            zero: "No %{entry_name} found"
+            one: "Displaying <b>1</b> %{entry_name}"
+            other: "Displaying <b>all %{count}</b> %{entry_name}"
+        more_pages:
+          display_entries: "Displaying %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> in total"
+  contact_form:
+    fields:
+      name: "Name*"
+      email: "E-mail*"
+      phone_number: "Phone number"
+      message: "Your message"
+      nickname: "Nickname"
+      leave_blank: "Leave this field blank!"
+    request:
+      title: "Technical information about the user"
+      remote_ip: "IP Address"
+      user_agent: "Browser"
+  feedback_form:
+    fields:
+      author: "Name"
+      email: "Email"
+      city: "City"
+      occupation: "Ocupation"
+      photo: "Photo"
+      body: "Message"
+  flash:
+    notices:
+      email_sent: Thank you! The message has been sent. We will contact you soon!
+      service_booked: Thank you! Your Service Request Form will be reviewed shortly and our representative will contact you to the email address or phone number you've provided.
+    errors:
+      cannot_send: Cannot send message. Make sure all required information is filled
+      errors: "%{count} characters is the maximum allowed"
+    bookings:
+      create:
+        notice: "Thank you! Our manager will contact you soon"
+  errors:
+    message:
+      invalid: "invalid entry"
+      move_in_at: "can't be in the past"
+      move_out_at: "should be higher then move in date"
+      date_not_available: "this date is already booked"
+    messages:
+      already_exists: "already exists"
+  ckeditor:
+    page_title: 'CKEditor Files Manager'
+    confirm_delete: 'Delete file?'
+    buttons:
+      cancel: 'Cancel'
+      upload: 'Upload'
+      delete: 'Delete'
+      next: 'Next'
+  static_pages:
+    pages: Pages
+    main: Main
+    secondary: Secondary
+    service: Service
+    services: Services
+    info: Info
+    legal: Legal
+    about: About
+    non_categorized: Non-categorized
+  estate_types:
+    apartment: Apartment
+    villa: Villa
+    house: House
+    land: Land
+  tenure_types:
+    rent: For Rent
+    sale: For Sale
+  places:
+    phuket: Phuket
+    samui: Samui
+    bali: Bali
+  estate_regions:
+    # Phuket
+    phuket_town: Phuket Town
+    phuket_kathu: Kathu
+    phuket_panwa: Panwa
+    phuket_chalong: Chalong
+    phuket_rawai: Rawai
+    phuket_nai_harn: Nai Harn
+    phuket_kata: Kata
+    phuket_karon: Karon
+    phuket_kalim: Patong
+    phuket_patong: Kalim
+    phuket_kamala: Kamala
+    phuket_bang_tao: Bang Tao
+    phuket_surin: Surin
+    # Samui
+    samui_maenam: Maenam
+    samui_bophut: Bophut
+    samui_choeng_mon: Choeng Mon
+    samui_chaweng: Chaweng
+    samui_lamai: Lamai
+    samui_hua_thanon: Hua Thanon
+    samui_bang_kao: Bang Kao
+    samui_thong_krut: Thong Krut
+    samui_taling_ngam: Taling Ngam
+    samui_lipa_noi: Lipa Noi
+    samui_nathon: Nathon
+    samui_laem_yai: Laem Yai
+    samui_bang_bor: Bang Bor
+    samui_baan_tai: Baan Tai
+    # Bali
+    bali_amed: Amed
+    bali_ubud: Ubud
+    bali_denpasar: Denpasar
+    bali_candidasa: Candidasa
+    bali_tanag_lot: Tanag Lot
+    bali_canggu: Canggu
+    bali_seminyak: Seminyak
+    bali_kerobokan: Kerobokan
+    bali_petitenget: Petitenget
+    bali_kuta: Kuta
+    bali_legian: Legian
+    bali_sanur: Sanur
+    bali_jimbaran: Jimbaran
+    bali_uluwatu: Uluwatu
+    bali_nusa_dua: Nusa Dua
+    bali_benoa: Benoa
+    bali_bukit: Bukit
+    bali_pemuteran: Pemuteran
+  estate_classes:
+      economy: Economy
+      standard: Standard
+      premium: Premium
+      luxurious: Luxurious
+  cleaning_periods:
+    every_day: Every day
+    every_week: Every week
+    every_month: Every month
+    2_times_a_week: 2 times a week
+    3_times_a_week: 3 times a week
+    4_times_a_week: 4 times a week
+    5_times_a_week: 5 times a week
+    6_times_a_week: 6 times a week
+    2_times_a_month: 2 times a month
+    3_times_a_month: 3 times a month
+  price_periods:
+    day: Day
+    week: Week
+    month: Month
+    long_term: Long term
+  price_seasons:
+    low: Low season
+    high: High season
+    pick: Pick season
+  sea_distances:
+    under_one: less then 1 km
+    one_three: 1-3 km
+    three_five: 3-5 km
+  agency_phuket: |
+    Real Estate Agency
+  bedrooms_count: &bedrooms_count
+    zero: no bedrooms
+    one: 1 bedroom
+    other: '%{count} bedrooms'
+  bathrooms_count: &bathrooms_count
+    zero: no bathrooms
+    one: 1 bathroom
+    other: '%{count} bathrooms'
+  booking_statuses:
+    pending: "Pending"
+    approved: "Approved"
+    canceled: "Canceled"
+    completed: "Completed"
+    unavailable: "Unavailable"
+  change_booking_statuses:
+    pending: "Make Pending"
+    approved: "Approve"
+    canceled: "Cancele"
+    completed: "Complete"
+    unavailable: "Unavailable"
+  labels:
+    name: "Name:"
+    title: "Title:"
+    main: "Main:"
+    featured: "Featured:"
+    slider: "Slider:"
+  yes: "Yes"
+  no: "No"
+  for_sale: For Sale
+  estate_new: Add estate
+  estate_created: 'Estate was successfully created'
+  estate_updated: 'Estate was successfully updated'
+  estate_destroyed: 'Estate was successfully destroyed'
+  comfort_created: 'Comfort was successfully created'
+  comfort_updated: 'Comfort was successfully updated'
+  comfort_destroyed: 'Comfort was successfully destroyed'
+  for_rent: For Rent
+  viber: Viber
+  whatsapp: WhatsApp
+  estates: Estates
+  about_estate: About this property
+  show_all_photos: Show all images
+  description: Description
+  details: Details
+  price_catalog: 'from <span>%{price}</span> THB'
+  edit: "Edit"
+  editing: "Editing"
+  images: "Photos"
+  delete: "Delete"
+  comforts: "Comforts"
+  comfort: "Comfort"
+  comfort_new: "New comfort"
+  static_page_new: "New static page"
+  #todo: change to city or something more suitable
+  place: "Island"
+  region: "Region"
+  #todo: change to city or something more suitable
+  place_name: "Island:"
+  region_name: "Region:"
+  price: "Price"
+  price_per_period: "Starting at %{price} THB a %{period}"
+  price_per_period_span: "Starting at <span>%{price} THB</span> a %{period}"
+  move_in_at: "Move in"
+  move_out_at: "Move out"
+  date: "Date"
+  request_booking: "Request booking"
+  show_all: "Show all"
+  hide: "Hide"
+  price_baht_small: "Price, <small>THB</small>"
+  see_also: "See also"
+  email_info: "info@insidevilla.com"
+  send: "Send"
+  feedbacks: "Feedbacks"
+  leave_feedback: "Leave feedback"
+  customer_feedbacks: "Our clients' feedbacks"
+  approved: "Approved"
+  not_approved: "Not approved"
+  id: "ID"
+  book_now: "Book now"
+  learn_more_about_phuket: "Learn more about Phuket"
+  send_request: "Send request"
+  regions: "Areas"
+  seasons: "Seasons"
+  beaches: "Beaches"
+  entertainment: "Entertainment"
+  see_more: "See more"
+  also_check_out: "Also check out"
+  best_rental_offers: "best rental offers"
+  upon_request: "Upon request"
+  bathrooms: "Bathrooms"
+  bedrooms: "Bedrooms"
+  tenure_type: "Tenure type"
+  estate_type: "Type"
+  all: "All"
+  search: "Search"
+  sort_by_price: "Sort by price"
+  sort_by_date: "Sort by date"
+  shopping: "Shopping"
+  transfer: "Тransfer"
+  excursions: "Excursions"
+  rental: "Rental"
+  pages: "Pages"
+  price_for: "<b>%{season}</b> for <b>%{period}</b>"
+  find: "Find"
+  sea_distance: "Beach distance"
+  search_by_id: "Search by ID"
+  advanced_search: "Advanced search"
+  map: "Map"
+  open_search: "Open search"
+  close_search: "Close search"
+  check_some_options: "Check out some of the options"
+  why_clients_choose_us: "Why our clients choose us"
+  we_support_our_guests: "We support our guests"
+  service: "Service"
+  owner_pays_commission: "Owner pays the commission"
+  we_are_team: "We are team"
+  we_love_what_we_do: "We love what we do"
+  five_steps: "Five steps to work with us"
+  leave_request: "Leave a request"
+  step_1: "%{link}<br>or<br>call us"
+  step_3: "Individual offer<br>for You and choice of<br>the options You liked"
+  step_5: "Enjoy<br>the Phuket<br>vacation"
+  step_2: "Clarification and<br>negotiation<br>of details"
+  step_4: "Signing<br>agreement and<br>prepayment"
+  first_slider_details: "Slider details"
+  request_received: "We received your request"
+  leave_feedback: "Leave feeback"
+  min_price: "Price from"
+  max_price: "Price upto"
+  baht_month: "Baht/Month"
+  baht_day: "Baht/Day"
+  sign_out: "Sign out"
+  booking_requested: "Booking request"
+  name: "Full Name"
+  phone_number: "Phone number"
+  email: "Email"
+  adults: "Adults"
+  kids: "Children"
+  additional: "Additional"
+  car_rental: "Car rental"
+  airport_transfer: "Airport transfer"
+  escort_service: "Escort Services"
+  comment: "Comment"
+  are_you_sure: "Are you sure?"
+  feedback_created: "Thank you! Your feedback is being processed"
+  feedback_updated: "Feedback was successfully updated"
+  feedback_destroyed: "Feedback was successfully destroyed"
+  calendar: "Calendar"
+  all_bookings: "Show all bookings"
+  bookings: "Bookings"
+  estate: "Property"
+  back_to_estate: "Back to estate"
+  show: "Show"
+  destroy: "Destroy"
+  author: "Author"
+  city: "City"
+  occupation: "Occupation"
+  estate_id: "Estate ID"
+  feedback: "Feedback"
+  new_booking: "New booking"
+  cancel: "Cancel"
+  longitude: "Longitude"
+  latitude: "Latitude"
+  prices: "Prices"
+  reset: "Reset"
+  news_and_promo: "News and promotions"
+  info_block: "Info-block"
+  join_us: "Join us!"
+  copyright_html: "&copy; 2015 InsideVilla"
+  contacts: "Contacts"
+  apartments: "Apartments"
+  villas: "Villas"
+  houses: "Houses"
+  lands: "Land"
+  projects: "Projects"
+  subscribe: "Subscribe"
+  estate_name: "Property name"
+  link: "Link"
+  about: "about"
+  about_us: "About Us"
+  feedback_approved: "Feedback was approved"
+  feedback_disapproved: "Feedback was disapproved"
+  approval: "Approval"
+  disapprove: "Disapprove"
+  approve: "Approve"
+  cancel: "Cancel"
+  unavailable: "Unavailable"
+  pending: "Pending"
+  complete: "Complete"
+  status: "Status"
+  back: "Back"
+  admin_prices: "Admin prices"
+  period: "Period"
+  admin_price: "Admin price"
+  customer_price: "Customer price"
+  coordinates: "Coordinates"
+  owner_info: "Owner's info"
+  commission: "Commission"
+  additional_info: "Additional info"
+  general_data: "General data"
+  closest_beach: "Closest beach"
+  number_of_bedrooms: "Bedrooms: %{num}"
+  number_of_bathrooms: "Bathrooms: %{num}"
+  number_of_single_beds: "Single beds: %{num}"
+  number_of_double_beds: "Double beds: %{num}"
+  to_the_airport: "To the airport %{num}"
+  estate_class: "Class"
+  menu:
+    languages:
+      ru: "РУС"
+      en: "EN"
+  save: "Save"
+  booking_pending: "Booking status has changed to pending"
+  booking_approved: "Booking status has changed to approved"
+  booking_completed: "Booking status has changed to completed"
+  booking_canceled: "Booking status has changed to canceled"
+  booking_unavailable: "Booking status has changed to unavailable"
+  change_status: "Change Status"
+  cleaning_period: "Cleaning:"
+  new_image: "Add image"
+  reset_settings: "Reset settings"
+  subscription_created: "You successfully sibscribed to newsletters"
+  subscription_destroyed: "You have been unsubscribed"
+  continue: Continue
+  unsubscribe_content: "Are you sure that you don't what to receive emails with news and promotions?"
+  unsubscribe: "Unsubscribe"
+  insidevilla_team: "Insidevilla team"
+  mailer_templates:
+    send_email:
+      send_email: Send email
+      send_email_title: Send test email
+      success: Successfully sent
+      test_email: Test email
+  chars_left: "remaining"
+  feedback_photo_recommended: "Photo (Recommended image 250x250px, under 3mb)"
+  read_all: "Complete story"
+  months: "%{start} - %{end}"
+  previous: "Previous"
+  next: "Next"
+  nothing_found: "Nothing was found"

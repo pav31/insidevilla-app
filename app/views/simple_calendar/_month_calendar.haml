@@ -1,0 +1,28 @@
+- idx = 0
+.simple-calendar
+  - date_range.each do |month|
+    .small-offset-2.medium-offset-0.small-8.medium-6.large-4.columns.end
+      - this_month = start_date + idx.months
+      .calendar-heading.text-center
+        %span.calendar-title
+          = content_tag :h5, class: 'subheader' do
+            = t('date.month_names')[this_month.month]
+            = this_month.year
+      %table.table.table-striped.text-center
+        %thead
+          %tr
+            - month.slice(0, 7).each do |day|
+              %th.text-center= t('date.abbr_day_names')[day.wday]
+        %tbody
+          - month.each_slice(7) do |week|
+            %tr.text-center
+              - week.each do |day|
+                = content_tag :td do
+                  - if this_month.month == day.month
+                    - if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(block)
+                      - capture_haml(day, sorted_events.fetch(day, []), &block)
+                    - else
+                      - block.call day, sorted_events.fetch(day, [])
+                  - else
+                    \-
+      - idx += 1

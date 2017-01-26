@@ -1,0 +1,7 @@
+.row
+  .small-6.small-centered.column.text-center
+    %h2= t('mailer.subscription.subscribed.header')
+    = content_tag :p do
+      = t('mailer.subscription.subscribed.body_html')
+      = link_to @unsubscribe_link, target: '_blank' do
+        = t('mailer.subscription.subscribed.unsubscribe')

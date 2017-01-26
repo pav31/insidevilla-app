@@ -1,0 +1,46 @@
+%footer
+  .row
+    .columns.large-3.medium-6.medium-centered.large-uncentered
+      %h3= t(:news_and_promo)
+      = render 'subscriptions/form'
+
+    .columns.medium-offset-1.medium-2.large-offset-0.link
+      %h4= link_to t(:for_rent), estates_path(tenure_type: :rent)
+      - Estate.rent.estate_types.each do |type, _|
+        = link_to t(type.pluralize), estates_path(tenure_type: :rent, estate_type: type)
+
+    .columns.medium-2.link
+      %h4= link_to t(:for_sale), estates_path(tenure_type: :sale)
+      - Estate.sale.estate_types.each do |type, _|
+        = link_to t(type.pluralize), estates_path(tenure_type: :sale, estate_type: type)
+
+    .columns.medium-2.link
+      %h4= link_to t('static_pages.services'), static_page_path('service')
+      - StaticPage.service.each do |page|
+        = link_to page.title, static_page_path(page)
+
+    .columns.medium-2.link
+      %h4= link_to t('static_pages.info'), static_page_path('info')
+      - StaticPage.info.each do |page|
+        = link_to page.title, static_page_path(page)
+
+    .columns.medium-2.large-1.end.link.text-center
+      %h4= link_to t('static_pages.about'), static_page_path('about')
+      = link_to t(:contacts), static_page_path("contacts")
+      = link_to t(:about_us), static_page_path("about")
+      = link_to t(:feedbacks), feedbacks_path
+
+  .row
+    .columns.large-3.large-centered.text-center.copyrights
+      %hr
+      %h4= t(:join_us)
+      .social_buttons
+        = link_to Settings.vk_url, target: '_blank' do
+          %i.fa.fa-vk
+        = link_to Settings.facebook_url, target: '_blank' do
+          %i.fa.fa-facebook
+        = link_to Settings.instagram_url, target: '_blank' do
+          %i.fa.fa-instagram
+        = link_to Settings.youtube_url, target: '_blank' do
+          %i.fa.fa-youtube
+      %span= t(:copyright_html)

@@ -1,0 +1,13 @@
+.columns.large-6.medium-6.small-12
+  .accommodation_container
+    .accommodation_image{style: "background-image: url(#{estate_wide.main_image(:estate_wide)});"}
+    %p= estate_wide.title
+    = link_to estate_wide, class: "accommodation_about" do
+      %h3.text-center= estate_wide.title
+      %span.accommodation_area
+        = "#{t(:place_name)} #{t("places.#{estate_wide.place}")}"
+      %span.accommodation_area
+        = "#{t(:region_name)} #{t("estate_regions.#{estate_wide.region}")}"
+      %span.accommodation_price
+        = t(:price_per_period, price: money_without_cents(estate_wide.price_month_low), period: I18n.t("price_periods.month"))
+      %button.button= t(:details)

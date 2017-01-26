@@ -1,0 +1,4 @@
+- if @image&.new_record?
+  alert("Failed to upload image: #{ j @image.errors.messages[:attachment].join(',') }");
+- else
+  $('#images').append("#{ j render partial: 'images/minimal_image', locals: { image: @image } }");

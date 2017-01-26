@@ -1,0 +1,65 @@
+en:
+  simple_form:
+    "yes": 'Yes'
+    "no": 'No'
+    required:
+      text: 'required'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "Please review the problems below:"
+    # Examples
+    # labels:
+    #   defaults:
+    #     password: 'Password'
+    #   user:
+    #     new:
+    #       email: 'E-mail to sign in.'
+    #     edit:
+    #       email: 'E-mail.'
+    # hints:
+    #   defaults:
+    #     username: 'User name to sign in.'
+    #     password: 'No special characters, please.'
+    # include_blanks:
+    #   defaults:
+    #     age: 'Rather not say'
+    # prompts:
+    #   defaults:
+    #     age: 'Select your age'
+    labels:
+      estate:
+        title: "Title"
+        description: "Description"
+        slider: "Slider"
+        main_image: "Main_image"
+        address: "Address"
+        price_cents: "Long term price"
+        price_day_low_cents: "Low season price per day"
+        price_day_mid_cents: "High season price per day"
+        price_day_pick_cents: "Pick season price per day"
+        price_week_low_cents: "Low season price per week"
+        price_week_mid_cents: "High season price per week"
+        price_week_pick_cents: "Pick season price per week"
+        price_month_low_cents: "Low season price per month"
+        price_month_mid_cents: "High season price per month"
+        price_month_pick_cents: "Pick season price per month"
+        region: "Region"
+        area_size: "Area size"
+        bedrooms: "Bedrooms"
+        bathrooms: "Bathrooms"
+        sea_distance: "Distance to the beach (m)"
+        airport_distance: "Distance to the airport (m)"
+        estate_type: "Estate type"
+        tenure_type: "Tenure type"
+        draft: "Draft"
+        featured: "Featured"
+        available: "Available"
+        latitude: "Latitude (detected)"
+        longitude: "Longitude (detected)"
+        lat: "Latitude (custom)"
+        long: "Longitude (custom)"
+        comforts: "Comforts"
+        images: "Images"

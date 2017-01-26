@@ -1,0 +1,36 @@
+= t('mailer.common.greeting', name: @booking.name)
+\
+= t('mailer.booking_created_client.header')
+\
+= "#{t(:estate_name)}: #{@booking.estate.title}"
+= "#{t(:link)}: #{estate_url(@booking.estate, locale: locale)}"
+\
+= "#{t(:name)}: #{@booking.name}"
+= "#{t(:email)}: #{@booking.email}"
+= "#{t(:phone_number)}: #{@booking.phone_number}"
+\
+= "#{t(:move_in_at)}: #{@booking.move_in_at}"
+= "#{t(:move_out_at)}: #{@booking.move_out_at}"
+\
+= "#{t(:adults)}: #{@booking.adults}"
+= "#{t(:kids)}: #{@booking.kids}"
+\
+= "#{t(:comment)}: #{@booking.comment}"
+\
+= t(:services)
+= "#{t(:car_rental)}: #{check_bool(@booking.car_rental?)}"
+= "#{t(:airport_transfer)}: #{check_bool(@booking.airport_transfer?)}"
+= "#{t(:escort_service)}: #{check_bool(@booking.escort_service?)}"
+\
+\
+\---
+\
+= t('mailer.booking_created_client.message_text')
+\
+= t('mailer.common.thanks_for_choosing_us_text')
+\
+= t('mailer.common.visit_us', link: root_url )
+\
+= t('mailer.common.signature')
+\
+= t(:insidevilla_team)

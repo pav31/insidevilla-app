@@ -1,0 +1,39 @@
+
+.ui-slider {
+  cursor: pointer;
+}
+
+.ui-slider-range.ui-widget-header {
+  background: #3399ff;
+}
+
+.ui-slider-handle.ui-state-default.ui-corner-all.ui-state-hover {
+  border-color: #069 !important;
+}
+
+.ui-slider .ui-slider-handle, .ui-slider .ui-slider-handle:hover {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  left: -3px;
+  top: -5px;
+  background: #069 !important;
+  border-color: #069 !important;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.ui-slider-handle:after, .ui-slider-handle:before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 1px;
+  width: 10px;
+  background: #fff;
+  left: 4px;
+  top: 7px;
+}
+
+.ui-slider-handle:before{
+  top: 10px;
+}

@@ -1,0 +1,16 @@
+%header
+  .row
+    .columns.large-2.small-6
+      = link_to image_tag('logo.png'), root_path, class: 'agency_logo'
+    .columns.large-3.small-6
+      %span.agency_description= t(:agency_phuket)
+    .columns.large-7.text-right.small-12
+      .agency_contacts
+        %span.agency_mail
+          %i.fa.fa-envelope
+          = mail_to t(:email_info)
+        %span.agency_phones
+          = t(:viber)
+          %a{href: "callto:#{Settings.viber}"}= Settings.viber
+          = t(:whatsapp)
+          %a{href: "callto:#{Settings.whatsapp}"}= Settings.whatsapp

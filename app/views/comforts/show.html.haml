@@ -1,0 +1,11 @@
+.row
+  .small-12.columns.text-center
+    = image_tag @comfort.icon(:icon), class: 'th'
+    %h3.title= @comfort.name
+    = @comfort.category.humanize
+
+.row
+  .small-12.columns
+    = link_to t(:edit), edit_comfort_path(@comfort)
+    \|
+    = link_to t(:back), comforts_path

@@ -1,0 +1,197 @@
+- if Rails.env.production?
+  - meta "yandex-verification": "ac3e2b46a89d8f4c"
+= content_for :body do
+  .loader
+
+%section.orbit_slider
+  .orbit{'aria-label': 'Favorite Phuket Places', 'data-orbit': '', role: 'slider'}
+    %ul.orbit-container
+      - if @slider.size > 1
+        %button.orbit-previous{'aria-label': 'previous'}
+          %span.show-for-sr Previous Slide
+          %i.fa.fa-angle-left
+        %button.orbit-next{'aria-label': 'next'}
+          %span.show-for-sr Next Slide
+          %i.fa.fa-angle-right
+      - @slider.each_with_index do |slide, idx|
+        %li.orbit-slide{id: "slide_#{slide.id}", 'data-image-url': asset_path(slide.image.url), class: ('is-active' if idx == 0) }
+          .row
+            .columns.large-12
+              %h2= slide.title
+              %h3= slide.text
+    .row
+      .columns.medium-offset-1.medium-5.small-offset-0.form_wrapper
+        .orbit_form_wrapper
+          = search_form_for @q, html: { class: "orbit_form" } do |f|
+            %h3= t(:search)
+            .row
+              .columns.small-12
+                = f.select :tenure_type_eq, options_for_select(@tenure_collection, 0), {include_blank: t(:all)}
+            .row
+              .columns.small-4
+                %span= t(:place)
+              .columns.small-8
+                = f.select :place_eq, options_for_select(@place_collection), {include_blank: t(:all)}
+            -#TODO: remove
+            -#.row
+            -#  .columns.small-4
+            -#    %span= t(:region)
+            -#  .columns.small-8
+            -#    = f.select :region_eq, options_for_select(@region_collection), {include_blank: t(:all)}
+            .row
+              .columns.small-4
+                %span= t(:estate_type)
+              .columns.small-8
+                = f.select :estate_type_eq, options_for_select(@type_collection), {include_blank: t(:all)}
+            .row
+              .columns.small-4
+                %span= t(:bedrooms)
+              .columns.small-8
+                = f.select :bedrooms_eq, options_for_select(@bedrooms_collection), {include_blank: t(:all)}
+            .row
+              .columns.small-4
+                %span= t(:bathrooms)
+              .columns.small-8
+                = f.select :bathrooms_eq, options_for_select(@bathrooms_collection), {include_blank: t(:all)}
+            .row
+              .columns.small-4
+                %span= t(:sea_distance)
+              .columns.small-8
+                = f.select :sea_distance_eq, options_for_select(@distance_collection), {include_blank: t(:all)}
+            .row
+              .columns.small-12
+                %button.button.button_search
+                  %i.fa.fa-search
+                  = t(:find)
+          %a.button.button_search_open
+            .button_text
+              %i.fa.fa-angle-up
+              = t(:open_search)
+            .button_text{style: 'display:none;'}
+              %i.fa.fa-angle-down
+              = t(:close_search)
+    %nav.orbit-bullets
+      - @slider.each_with_index do |slide, idx|
+        %button{ 'data-slide': idx, class: ('is-active' if idx == 0) }
+          %span.show-for-sr= slide.title
+
+%section.accommodations_main
+  .row
+    .columns.large-centered.large-10.heading
+      %h2
+        %span= t(:check_some_options)
+    = render partial: 'estates/estate_wide', collection: @estates_first
+    = render partial: 'estates/estate_square', collection: @estates_second
+    = render partial: 'estates/estate_wide', collection: @estates_third
+%section.gray_block.why_we_are
+  .row
+    .columns.large-centered.large-8.heading
+      %h2
+        %span= t(:why_clients_choose_us)
+  .row
+    .columns.medium-4.text-center
+      = image_tag "icon_service.png"
+      %h3= t(:service)
+      %span.font-22= t(:we_support_our_guests)
+    .columns.medium-4.text-center
+      = image_tag "icon_price.png"
+      %h3= t(:price)
+      %span.font-22= t(:owner_pays_commission)
+    .columns.medium-4.text-center
+      = image_tag "icon_team.png"
+      %h3= t(:we_are_team)
+      %span.font-22= t(:we_love_what_we_do)
+%section.steps_of_work
+  .row
+    .columns.large-centered.large-6.heading
+      %h2
+        %span= t(:five_steps)
+    .columns.large-3
+      .step.step-one
+        = image_tag "step-one.png"
+        %span{'data-magellan': ''}
+          - link = link_to t(:leave_request), '#new_contact'
+          = raw t(:step_1, link: link)
+    .columns.large-4.large-offset-1
+      .step.step-three
+        = image_tag "step-three.png"
+        %span= raw t(:step_3)
+    .columns.large-3.large-offset-1
+      .step.step-five
+        = image_tag "step-five.png"
+        %span= raw t(:step_5)
+    .columns.large-3.large-offset-2
+      .step.step-two
+        = image_tag "step-two.png"
+        %span= raw t(:step_2)
+    .columns.large-3.large-offset-2.end
+      .step.step-four
+        = image_tag "step-four.png"
+        %span= raw t(:step_4)
+%section.steps_of_work_mobile
+  .row
+    .columns.medium-10.medium-centered.heading
+      %h2
+        %span= t(:five_steps)
+    .columns.medium-6.medium-centered
+      .step.step-one
+        = image_tag "step-one.png"
+        %span{'data-magellan': ''}
+          - link = link_to t(:leave_request), '#new_contact'
+          = raw t(:step_1, link: link)
+    .columns.medium-6.medium-centered
+      .step.step-two
+        = image_tag "step-two.png"
+        %span= raw t(:step_2)
+    .columns.medium-6.medium-centered
+      .step.step-three
+        = image_tag "step-three.png"
+        %span= raw t(:step_3)
+    .columns.medium-6.medium-centered
+      .step.step-four
+        = image_tag "step-four.png"
+        %span= raw t(:step_4)
+    .columns.medium-6.medium-centered
+      .step.step-five
+        = image_tag "step-five.png"
+        %span= raw t(:step_5)
+    .column.clearfix
+
+%section.customer_reviews.clearfix#customer_reviews
+  .row
+    .columns.large-centered.large-6.heading
+      %h2
+        %span= t(:customer_feedbacks)
+  .row.reviews_full
+    .columns.reviews_slider
+      .orbit{'aria-label': 'Customers Reviews', 'data-orbit': '', role: 'slider'}
+        %ul.orbit-container
+          %button.orbit-previous(aria-label="previous")
+            %i.fa.fa-angle-left
+          %button.orbit-next(aria-label="next")
+            %i.fa.fa-angle-right
+          - @feedbacks.each do |feedback|
+            %li.orbit-slide
+              .row
+                .columns.medium-10.small-12.small-centered.medium-centered.review-slide
+                  .review_wrapper
+                    .row
+                      .columns.large-3
+                        = image_tag feedback.photo(:main)
+                      .columns.small-12.large-9
+                        .review_article
+                          %h5= feedback.estate.title
+                          %p= feedback.body.truncate_words(60, omission: '...')
+                          = link_to t(:show), estate_feedback_path(feedback.estate, feedback)
+                          %p.author_name
+                            = feedback.author
+                            %i= feedback.occupation
+  .row
+    .column.small.reviews_slider_mobile
+      = link_to t(:feedbacks), feedbacks_path, class: 'button button-crimson'
+
+:javascript
+  // Hide loader when content is loaded
+  $(window).on('load', function () {
+    $('.loader').hide();
+  });

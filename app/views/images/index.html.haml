@@ -1,0 +1,24 @@
+.row
+  .small-12.large-6.large-centered.columns
+    %h1
+      = t(:images)
+
+    %table
+      %thead
+        %tr
+          %th
+          %th
+          %th
+          %th
+
+      %tbody
+        - @images.each do |image|
+          %tr
+            %td= link_to image_tag(image.attachment(:thumb), class: 'th'), image
+            %td= link_to t(:show), image
+            %td= link_to t(:edit), edit_image_path(image)
+            %td= link_to t(:destroy), image, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+    %br
+
+    = link_to t(:new_image), new_image_path

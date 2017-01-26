@@ -1,0 +1,64 @@
+.row
+  .small-centered.columns.text-center
+    %h2= t('mailer.booking_created_system.header')
+.row
+  .small-6.small-centered.columns
+    %table#booking
+      %tbody
+        %tr
+          %td{width: 150}
+            %b= t(:estate_name)
+          %td
+            = link_to @booking.estate.title, estate_url(@booking.estate, locale: locale), target: '_blank'
+        %tr
+          %td
+            %b= t(:move_in_at)
+          %td= @booking.move_in_at
+        %tr
+          %td
+            %b= t(:move_out_at)
+          %td= @booking.move_out_at
+        %tr
+          %td
+            %b= t(:name)
+          %td= @booking.name
+        %tr
+          %td
+            %b= t(:email)
+          %td= @booking.email
+        %tr
+          %td
+            %b= t(:phone_number)
+          %td= @booking.phone_number
+        %tr
+          %td
+            %b= t(:adults)
+          %td= @booking.adults
+        %tr
+          %td
+            %b= t(:kids)
+          %td= @booking.kids
+        %tr
+          %td
+            %b= t(:comment)
+          %td= @booking.comment
+        %tr
+          %td
+            %b= t(:car_rental)
+          %td= check_bool(@booking.car_rental?)
+        %tr
+          %td
+            %b= t(:airport_transfer)
+          %td= check_bool(@booking.airport_transfer?)
+        %tr
+          %td
+            %b= t(:escort_service)
+          %td= check_bool(@booking.escort_service?)
+        %tr
+          %td
+            %b= t(:status)
+          %td= t("booking_statuses.#{@booking.status}")
+
+.row
+  .small-6.small-centered.text-center.columns
+    = link_to t(:show), estate_booking_url(@booking.estate_id, @booking, locale: locale), class: 'button', target: '_blank'

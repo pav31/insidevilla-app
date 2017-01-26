@@ -1,0 +1,29 @@
+%table.table_pricing
+  %tr
+    %td
+
+    %td
+      = t('price_seasons.low')
+    %td
+      = t('price_seasons.high')
+    %td
+      = t('price_seasons.pick')
+
+  - %i[day week month].each do |period|
+    %tr
+      %td
+        = t("price_periods.#{period}")
+      - %i[low high pick].each do |season|
+        %td
+          - if (price = estate.price_select(period, season)) && (price.cents > 0)
+            = humanized_money price
+          - else
+            = t(:upon_request)
+  %tr
+    %td
+      = t('price_periods.long_term')
+    %td{:colspan=>"3"}
+      - if estate.price && estate.price > 0
+        = humanized_money estate.price
+      - else
+        = t(:upon_request)

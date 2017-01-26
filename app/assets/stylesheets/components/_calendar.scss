@@ -1,0 +1,90 @@
+@import "settings";
+
+.simple-calendar {
+  .day {}
+
+  .wday-0 {}
+  .wday-1 {}
+  .wday-2 {}
+  .wday-3 {}
+  .wday-4 {}
+  .wday-5 {}
+  .wday-6 {}
+
+  .today {}
+  .past {}
+  .future {}
+
+  .start-date {}
+
+  .prev-month {}
+  .next-month { }
+  .current-month {}
+
+  .has-events {}
+
+  .next, .prev {
+    font-size: 40px;
+    vertical-align: middle;
+    font-weight: bold;
+    display: inline-block;
+    position: relative;
+    top: -6px;
+    padding: 0 10px;
+  }
+
+  .calendar-heading span.calendar-title {
+    font-weight: bold;
+  }
+
+  table {
+    tbody {
+      tr:nth-child(even) {
+        background: $white;
+      }
+      tr {
+        td {
+          padding: 0;
+          line-height: 1.3;
+        }
+      }
+    }
+  }
+}
+
+.move-in, .move-out {
+  background: image-url('booking_status_background.png') no-repeat;
+}
+.-appr, .-pend, .appr, .pend {
+  text-decoration: line-through;
+}
+.move-out.appr-.move-in.-appr {
+  background-position: center -252px;
+}
+.move-out.appr-.move-in.-pend {
+  background-position: center -85px;
+}
+.move-out.pend-.move-in.-appr {
+  background-position: center -210px;
+}
+.move-out.pend-.move-in.-pend {
+  background-position: center -295px;
+}
+.-appr {
+  background-position: center 0;
+}
+.appr- {
+  background-position: center -63px;
+}
+.-pend {
+  background-position: center -21px;
+}
+.pend- {
+  background-position: center -190px;
+}
+.appr {
+  background: #ff914f;
+}
+.pend {
+  background: #b7bab6;
+}

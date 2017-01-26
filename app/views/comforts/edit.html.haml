@@ -1,0 +1,11 @@
+.row
+  .small-12.medium-6.large-6.medium-centered.columns
+    %h1= t(:editing)
+
+= render 'form'
+
+.row
+  .small-12.medium-6.large-6.medium-centered.columns
+    = link_to t(:show), @comfort
+    \|
+    = link_to t(:back), comforts_path

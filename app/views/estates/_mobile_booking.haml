@@ -1,0 +1,10 @@
+%form.fdatepicker
+  .columns.small-6
+    %span= t(:move_in_at)
+    %input.datepicker{type: "text", placeholder: t(:date), "data-book-from": '', "data-toggle": "datepicker"}
+  .columns.small-6
+    %span= t(:move_out_at)
+    %input.datepicker{type: "text", placeholder: t(:date), "data-book-to": ''}
+  .columns.small-12
+    %a.button{"data-toggle": "booknow-modal"}
+      = t(:request_booking)

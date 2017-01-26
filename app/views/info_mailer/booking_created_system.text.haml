@@ -1,0 +1,25 @@
+= t('mailer.booking_created_system.header')
+= estate_booking_url(@booking.estate_id, @booking, locale: locale)
+____________________________________
+\
+= "#{t(:estate_name)}: #{@booking.estate.title}"
+= "#{t(:link)}: #{estate_url(@booking.estate, locale: locale)}"
+\
+= "#{t(:name)}: #{@booking.name}"
+= "#{t(:email)}: #{@booking.email}"
+= "#{t(:phone_number)}: #{@booking.phone_number}"
+\
+= "#{t(:move_in_at)}: #{@booking.move_in_at}"
+= "#{t(:move_out_at)}: #{@booking.move_out_at}"
+\
+= "#{t(:adults)}: #{@booking.adults}"
+= "#{t(:kids)}: #{@booking.kids}"
+\
+= "#{t(:comment)}: #{@booking.comment}"
+\
+= t(:services)
+= "#{t(:car_rental)}: #{check_bool(@booking.car_rental?)}"
+= "#{t(:airport_transfer)}: #{check_bool(@booking.airport_transfer?)}"
+= "#{t(:escort_service)}: #{check_bool(@booking.escort_service?)}"
+\
+= t(:status) + ": " + t("booking_statuses.#{@booking.status}")

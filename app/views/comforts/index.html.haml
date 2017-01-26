@@ -1,0 +1,32 @@
+.row
+  .small-12.columns
+    %h1.text-center Listing comforts
+    = link_to t(:comfort_new), new_comfort_path, class: 'button expand'
+
+.row
+  .small-12.medium-12.large-10.large-centered.columns
+
+    %table
+      %thead
+        %tr
+          %th Icon
+          %th Name
+          %th Category
+          %th
+          %th
+          %th
+
+      %tbody
+        - @comforts.each do |comfort|
+          %tr
+            %td= link_to image_tag(comfort.icon(:icon), class: 'th'), comfort
+            %td= link_to comfort.name, comfort
+            %td= comfort.category
+            %td= link_to t(:show), comfort
+            %td= link_to t(:edit), edit_comfort_path(comfort)
+            %td= link_to t(:destroy), comfort, :method => :delete, :data => { :confirm => 'Are you sure?' }
+    %br
+
+.row
+  .small-12.columns
+    = link_to t(:comfort_new), new_comfort_path, class: 'button expand'

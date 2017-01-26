@@ -1,0 +1,6 @@
+%section
+  .row
+    .column.text-center
+      %h3= t(:unsubscribe)
+      %h4= t(:unsubscribe_content)
+      = button_to t(:continue), subscription_path(@subscription, del: @subs_token), method: :delete, class: 'button button-crimson'

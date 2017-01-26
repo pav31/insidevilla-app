@@ -1,0 +1,21 @@
+.row
+  .small-6.small-centered.columns
+    = content_tag :h1 do
+      = @feedback.author
+.row.mb20
+  .small-12.medium-6.columns
+    = image_tag @feedback.photo(:main)
+  .small-12.medium-6.columns
+    %p
+      %b= t(:estate)
+      = link_to @estate.title, estate_url(@estate), target: '_blank'
+    %p
+      %b= t(:city)
+      = @feedback.city
+    %p
+      %b= t(:occupation)
+      = @feedback.occupation
+    %p
+      = @feedback.body
+    - if signed_in?
+      = link_to t(:edit), edit_admin_feedback_path(@feedback)

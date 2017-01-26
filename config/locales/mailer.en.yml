@@ -1,0 +1,150 @@
+en:
+  mailer:
+    yes: Yes
+    no: No
+
+    common:
+      visit_us: "Visit us at %{link}"
+      greeting: "Hello, %{name}!"
+      signature: Kind regards,
+      thanks_for_choosing_us_html: |
+        Kind regards,
+        <br>
+        Insidevilla team.
+        <br>
+        Follow us in instagram
+        <br>
+        <a href="https://www.instagram.com/insidevilla_phuket/" target: "_blank">insidevilla_phuket</a>
+        <br>
+        <a href="https://www.instagram.com/nikolay_phuket" target: "_blank">nikolay_phuket</a>
+        <br>
+        <a href="https://www.instagram.com/rushanathai/" target: "_blank">rushanathai</a>
+      thanks_for_choosing_us_text: |
+        Kind regards,
+        Insidevilla team.
+        Follow us in instagram
+        https://www.instagram.com/nikolay_phuket
+        https://www.instagram.com/rushanathai
+        https://www.instagram.com/insidevilla_phuket
+
+    # Письмо контактной формы из футера
+    contact_form_request:
+      subject: Message for Insidevilla received
+      header: We have received your request. It is currently being processed
+      message: Our manager will contact you shortly.
+
+    # Уведомляет клиента, что бронирование подтверждено
+    booking_approved_client:
+      subject: Booking confirmation
+      header: Your booking is confirmed!
+      message_html: |
+        Please tell us your flight number and the time of arrival.
+        <br>
+        Do not hesitate to ask any questions, we are always on­line.
+        <br>
+        Thank you for choosing our service!
+      message_text: |
+        Please tell us your flight number and the time of arrival.
+        Feel free to ask any questions, we are always on­line.
+        Thank you for choosing our service!
+
+    # Уведомляет клиента о бронировании
+    booking_created_client:
+      subject: Request received
+      header: We have received your booking request. It is currently being processed
+      message_html: |
+        The manager from booking department will contact you shortly to finalize the details.
+        <br>
+        Thank you for choosing our service!
+      message_text: |
+        The manager from booking department will contact you shortly to finalize the details.
+        Thank you for choosing our service!
+
+    # Уведомляет нас о бронировании
+    booking_created_system:
+      subject: New booking
+      header: You are the BESTEST Real Estate Agent! New booking request again!
+
+    # Уведомляет клиента, за неделю до заселения
+    booking_reminder:
+      subject: Wait just a little bit!
+      header: Soon your trip to Thailand will begin!
+      body_html: |
+        We are waiting for you! Have you packed your suitcases? :)
+        <br>
+        Please let us know if everything goes as planned?
+      body_text: |
+        We are waiting for you! Have you packed your suitcases? :)
+        Please let us know if everything goes as planned?
+
+    # TODO: Уведомляет клиента о просьбе не забыть оставить отзыв после того как закончено проживание.
+    feedback_inqiury:
+      subject: How was your vacation?
+      header: Let us know your opinion
+      body_html: |
+        Vacation is almost over and we are looking forward to know your opinion.
+        <br>
+        We will be grateful if you find 5 minutes to leave feedback about your trip and our service.
+        <br>
+        How you spent your time, what you liked, what stands out in your mind? Don’t hesitate to express your feelings!
+        <br>
+        It is very important for us to get the feedback, so next time we can improve quality of your vacation.
+      body_text: |
+        Vacation is almost over and we are looking forward to know your opinion.
+        We will be grateful if you find 5 minutes to leave feedback about your trip and our service.
+        How you spent your time, what you liked, what stands out in your mind? Don’t hesitate to express your feelings!
+        It is very important for us to get the feedback, so next time we can improve quality of your vacation.
+
+    # Уведомляет клиента что отзыв ожидает подтверждения
+    feedback_created_client:
+      subject: Feedback is added
+      header: Thank You for your feedback
+      body_html: |
+        As soon as administrator confirms your feedback, it will be posted on our website.
+        <br>
+        Thank you for taking time to leave feedback about our work.
+      body_text: |
+        As soon as administrator confirms your feedback, it will be posted on our website.
+        Thank you for taking time to leave feedback about our work.
+
+    # Уведомляет нас о новом отзыве
+    feedback_created_system:
+      subject: Feedback is added
+      header: One of happy customers left review. Read it and confirm when you have time.
+      approve_html: 'To confirm follow the link  >> %{link}'
+
+    # TODO: Уведомляет нас о добавлении нового обьекта в базу
+    property_created_system:
+      subject: New property!
+      header: You are the BESTEST Real Estate Agent! Check new property!
+
+    # TODO: Уведомляет собственника,  что обьект ожидает подтверждения
+    property_created_client:
+      subject: New property added
+      header: Your property is almost ready to be added to our website
+      body_html: |
+        The manager from booking department will contact you shortly to finalize the details.
+        <br>
+        Thank you for choosing our service!
+      body_text: |
+        The manager from booking department will contact you shortly to finalize the details.
+        Thank you for choosing our service!
+
+    # TODO: Уведомляет собственника,  что обьект выложен на сайте
+    property_confirmed_client:
+      subject: Your property is posted
+      header: Your property was added to our website
+      body_html: |
+        You can view it by following this link %{link}.
+        <br>
+        Thank you for choosing our service!
+      body_text: |
+        You can view it by following this link %{link}.
+        Thank you for choosing our service!
+
+    subscription:
+      subject: "Insidevilla subscription"
+      subscribed:
+        header: "Subscribed to Insidevilla newsletters"
+        body: "If you don't wish to receive emails from us you can"
+        unsubscribe: unsubscribe

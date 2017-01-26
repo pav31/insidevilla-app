@@ -1,0 +1,14 @@
+.row
+  .small-12.large-6.large-centered.columns
+    - if @image.attachment
+      = image_tag(@image.attachment(:catalog), class: 'th')
+.row
+  .small-12.large-6.large-centered.columns
+    = simple_form_for(@image) do |f|
+      = f.error_notification
+
+      .form-inputs
+        = f.input :name
+
+      .form-actions
+        = f.button :submit

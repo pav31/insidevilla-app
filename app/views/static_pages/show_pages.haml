@@ -1,0 +1,19 @@
+%section.services_header#services_header
+  .row
+    .columns.large-12
+      .service_heading_short
+        %h2= t("static_pages.#{params[:id]}")
+
+%section.services_menu
+  .row
+    - @static_pages.each do |page|
+
+      .columns.small-centered.medium-uncentered.small-9.medium-6.large-6.xlarge-3
+        .accommodation_container
+          = image_tag(page.image(:full_size))
+          %p= page.title
+          %a.accommodation_about{href: static_page_path(page)}
+            %button.button= t(:details)
+    .clearfix
+
+= render 'layouts/see_also'

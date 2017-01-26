@@ -1,0 +1,12 @@
+.row
+  .small-6.small-centered.column
+    %h2= t('mailer.common.greeting', name: @booking.name)
+.row
+  .small-6.small-centered.columns
+    %p= t('mailer.booking_approved_client.header')
+    %p= t('mailer.booking_approved_client.message_html')
+    %hr
+    %p= t('mailer.common.thanks_for_choosing_us_html')
+    %p= raw  t('mailer.common.visit_us', link: link_to(root_url, root_url, target: '_blank') )
+    %p= t('mailer.common.signature')
+    %p= t(:insidevilla_team)

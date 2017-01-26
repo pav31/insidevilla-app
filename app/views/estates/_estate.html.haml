@@ -1,0 +1,17 @@
+.columns.large-4.medium-6.small-12
+  .accommodation_container
+    .price
+      - estate_price = session[:price_period] == "day" || estate.place == 'bali' ? estate.price_day_low : estate.price_month_low
+      = raw t(:price_catalog, price: money_without_cents(estate_price))
+    .placement
+      %i.fa.fa-map-marker
+      = t("places.#{estate.place}")
+      \:
+      = t("estate_regions.#{estate.region}")
+    .bedrooms_num
+      %i.fa.fa-bed
+      = estate.bedrooms
+    .accommodation_image{style: "background-image: url('#{estate.main_image(:estate_square)}');"}
+    %p= estate.title
+    = link_to estate, class: 'accommodation_about' do
+      = button_tag t(:details), class: 'button'

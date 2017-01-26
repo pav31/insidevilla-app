@@ -1,0 +1,7 @@
+.large-4.medium-4.small-4.columns.end
+  .img-wrapper-content
+    = image_tag image.attachment(:catalog)
+  .labels
+    .img-wrapper-overlay-content.centered
+      - if params[:action] == "edit"
+        = link_to_if user_signed_in?, t(:delete), image, method: :delete, data: { confirm: 'Are you sure?', remote: true }, class: 'button small alert'

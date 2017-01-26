@@ -1,0 +1,17 @@
+- meta title: @static_page.meta_title || @static_page.title, description: @static_page.description, keywords: @static_page.keywords
+
+%section.services_header#services_header
+  .row
+    .columns.large-12
+      .service_heading
+        %h2= @static_page.title
+
+%section.article_block
+  .row
+    .columns.large-12
+      = raw @static_page.content
+    - if @static_page.service?
+      .columns.large-12{'data-magellan': ''}
+        = link_to t(:send_request), '#new_contact', class: 'button'
+
+= render 'layouts/see_also'

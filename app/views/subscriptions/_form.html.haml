@@ -1,0 +1,3 @@
+= form_for Subscription.new do |f|
+    = f.text_field :email, placeholder: t(:email)
+    = f.submit t(:subscribe), class: 'button button-crimson'

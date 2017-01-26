@@ -1,0 +1,136 @@
+- price_period = session[:price_period] || "month"
+%section.catalogue_filter.clearfix#catalogue_filter
+  .row
+    .column.filter_form
+      %h3= t(:search)
+      -# replace with following when using POST for search. also see routes
+      -#= search_form_for @q, url: search_estates_path, html: { method: :post } do |f|
+      = search_form_for @q, enforce_utf8: false do |f|
+        .row.m0
+          .columns.medium-9.large-10.filter
+            .row.m0
+              .columns.large-4
+                .input-group
+                  %span.input-group-label
+                    = f.label :tenure_type, t(:tenure_type)
+                  = f.select :tenure_type_eq, options_for_select(@tenure_collection, session[:q][:tenure_type_eq]), {include_blank: t(:all)}, class: 'input-group-field'
+              .columns.large-4
+              .columns.large-4
+            .row.m0
+              .columns.large-4
+                .input-group
+                  %span.input-group-label
+                    = f.label :place, t(:place)
+                  = f.select :place_eq, options_for_select(@place_collection, session[:q][:place_eq]), {include_blank: t(:all)}, class: 'input-group-field'
+              .columns.large-4
+                .input-group
+                  %span.input-group-label
+                    = f.label :region, t(:region)
+                  = f.select :region_eq, options_for_select(@region_collection, session[:q][:region_eq]), {include_blank: t(:all)}, class: 'input-group-field'
+              .columns.large-4
+                .input-group
+                  %span.input-group-label
+                    = f.label :estate_type, t(:estate_type)
+                  = f.select :estate_type_eq, options_for_select(@type_collection, session[:q][:estate_type_eq]), {include_blank: t(:all)}, class: 'input-group-field'
+            .row.m0
+              .columns.large-4
+                .input-group
+                  %span.input-group-label
+                    = f.label :bedrooms, t(:bedrooms)
+                  = f.select :bedrooms_eq, options_for_select(@bedrooms_collection, session[:q][:bedrooms_eq]), {include_blank: t(:all)}, class: 'input-group-field'
+              .columns.large-4
+                .input-group
+                  %span.input-group-label
+                    = f.label :bathrooms, t(:bathrooms)
+                  = f.select :bathrooms_eq, options_for_select(@bathrooms_collection, session[:q][:bathrooms_eq]), {include_blank: t(:all)}, class: 'input-group-field'
+              .columns.large-4
+                .input-group
+                  %span.input-group-label
+                    = f.label :sea_distance, t(:sea_distance)
+                  = f.select :sea_distance_eq, options_for_select(@distance_collection, session[:q][:sea_distance_eq]), {include_blank: t(:all)}, class: 'input-group-field'
+            .row.m0
+              .columns.large-1
+                %label(for="price_#{price_period}_low_cents_gteq_price")= t(:price)
+              .columns.large-11.price_catalogue_filter
+                .row.collapse
+                  .small-6.large-3.columns
+                    = f.search_field :"price_#{price_period}_low_cents_gteq_price", value: session[:q][:"price_#{price_period}_low_cents_gteq_price"], placeholder: t(:min_price), id: "price_period_gteq"
+                  .small-6.large-3.columns
+                    = f.search_field :"price_#{price_period}_low_cents_lteq_price", value: session[:q][:"price_#{price_period}_low_cents_lteq_price"], placeholder: t(:max_price), id: "price_period_lteq"
+                  .small-12.large-6.columns
+                    %ul.button-group.round.toggle.price_radio_group{"data-toggle" => "buttons-radio"}
+                      %li
+                        %input#r1{"data-toggle": "button", name: "price_period", type: "radio", value: "month", checked: ("checked" if price_period == "month") }
+                          %label.button{:for => "r1"}= t(:baht_month)
+                      %li
+                        %input#r2{"data-toggle": "button", name: "price_period", type: "radio", value: "day", checked: ("checked" if price_period == "day") }
+                          %label.button{:for => "r2"}= t(:baht_day)
+                #slider-handles
+
+                #ui-slider.mb10
+
+            .row.m0
+              .column
+                %h5.advanced_search_open= t(:advanced_search)
+                %hr
+                .advanced_search{:style=>"display:none;"}
+                  - @all_comforts.each do |comfort|
+                    .columns.small-offset-3.small-6.medium-offset-0.medium-6.large-3.end
+                      - checked = comfort.id.to_s.in?(session[:q][:estate_comforts_comfort_id_eq_any].to_a)
+                      %div.checkbox
+                        %input{ name: 'q[estate_comforts_comfort_id_eq_any][]',
+                                type: "checkbox",
+                                id: "checkbox#{comfort.id}",
+                                value: comfort.id,
+                                checked: checked }
+                          %label{for: "checkbox#{comfort.id}"}= comfort.name
+          .columns.medium-3.large-2
+            = f.submit t(:search), class: "button button_search button-crimson" do
+              %i.fa.fa-search
+            .button.button_search.id_search= t(:search_by_id)
+            .row.collapse.postfix-round.id_search_form{:style=>"display:none;"}
+              .small-9.columns
+                = text_field_tag :id
+              .small-3.columns
+                = button_tag(type: "submit", class: "button id_search_button postfix") do
+                  %i.fa.fa-search
+            = link_to t(:reset), reset_filter_estates_path, class: "button expanded small font-18"
+
+%section.catalogue_accommodations.clearfix
+  .row
+    .columns
+      = sortable "price_#{price_period}_low_cents", t(:sort_by_price)
+      = sortable 'created_at', t(:sort_by_date)
+    - if @estates.empty?
+      .row
+        .column.text-center
+          %h3= t(:nothing_found)
+    - else
+      = render @estates
+
+    .columns.paginator
+      = paginate @estates
+
+%section.gray_block.more_about
+  .row
+    .columns.large-6.heading.large-centered
+      %h2
+        %span= t(:learn_more_about_phuket)
+  .row
+    .columns.small-centered.medium-uncentered.small-9.medium-offset-0.medium-6.large-6.xlarge-3
+      %a.places{href: static_page_path("regions")}
+        %span
+          = t(:regions)
+    .columns.small-centered.medium-uncentered.small-9.medium-offset-0.medium-6.large-6.xlarge-3
+      %a.seasons{href: static_page_path("seasons")}
+        %span.text-centered
+          = t(:seasons)
+    .columns.small-centered.medium-uncentered.small-9.medium-offset-0.medium-6.large-6.xlarge-3
+      %a.beaches{href: static_page_path("beaches")}
+        %span
+          = t(:beaches)
+    .columns.small-centered.medium-uncentered.small-9.medium-offset-0.medium-6.large-6.xlarge-3
+      %a.excursions{href: static_page_path("excursions")}
+        %span
+          = t(:excursions)
+    .clearfix

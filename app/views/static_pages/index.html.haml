@@ -1,0 +1,24 @@
+.row
+  .small-12.columns
+    %h1.text-center Listing Static Pages
+
+.row
+  .small-12.medium-12.large-10.large-centered.columns
+
+    %table
+      %thead
+        %tr
+          %th Title
+          %th Content
+          %th Category
+          %th
+
+      %tbody
+        - @static_pages.each do |static_page|
+          %tr
+            %td= link_to static_page.title, static_page
+            %td= static_page.content
+            %td= static_page.category
+            %td= link_to t(:show), static_page
+
+    %br

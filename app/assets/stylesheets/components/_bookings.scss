@@ -1,0 +1,17 @@
+@import "settings";
+
+#booking {
+  tbody {
+    tr:nth-child(even) {
+      background-color: $white;
+    }
+    tr {
+      border: $table-border;
+      td {
+        input[type='checkbox']{
+          margin: 0;
+        }
+      }
+    }
+  }
+}

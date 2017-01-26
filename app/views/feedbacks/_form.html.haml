@@ -1,0 +1,30 @@
+.row
+  .small-6.small-centered.columns
+    - action = params[:action] == 'new' ? [:estate, @feedback] : [@estate, @feedback]
+    = simple_form_for(action) do |f|
+      = f.error_notification
+
+      .form-inputs
+        = f.input :author
+        = f.input :email
+        = f.input :city
+        = f.input :occupation
+        = f.input :photo, as: :file, label: t(:feedback_photo_recommended)
+        #target
+          - if @feedback.photo?
+            = image_tag @feedback.photo(:thumb)
+        = f.input :body
+        .counter
+          = t(:chars_left)
+          %span#counter{"data-maximum-length": @maximum_length }= @maximum_length
+
+        - if @estate.present?
+          = t(:estate_name)
+          \-
+          = link_to @estate.title, @estate
+        - if signed_in?
+          = f.input :approved
+          = f.input :favorite
+
+      .form-actions.text-center
+        = f.button :submit, t(:leave_feedback)

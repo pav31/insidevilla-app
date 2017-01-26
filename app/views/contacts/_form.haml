@@ -1,0 +1,14 @@
+%section.contact-form.clearfix{'data-magellan-target': 'new_contact'}
+  .row
+    .column
+      = simple_form_for(@contact) do |f|
+        = f.error_notification
+        .row
+          .columns.medium-4
+            = f.input :name, input_html: { value: f.object.name || session[:name] }, placeholder: t('contact_form.fields.name'), label: false, error: false, required: true
+            = f.input :phone_number, input_html: { value: f.object.phone_number || session[:phone_number] }, placeholder: t('contact_form.fields.phone_number'), error: false, label: false
+            = f.input :user_email, input_html: { value: f.object.user_email || session[:user_email] }, placeholder: t('contact_form.fields.email'), label: false, error: false, required: true
+          .columns.medium-8
+            = f.input :message, input_html: { value: f.object.message || session[:message] }, as: :text, placeholder: t('contact_form.fields.message'), error: false, label: false, required: true
+          = f.input :nickname, as: :hidden, hint: t('contact_form.fields.leave_blank'), error: false, label: false
+          = f.button :submit, t(:send), class: "button button-crimson"
